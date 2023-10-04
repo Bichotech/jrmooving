@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Sarpanch&display=swap');
+
+:root {
+    --bt-back-color: #101010;
+    --bt-blue-color: #01ADEE;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 10px;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+}
+
+body {
+    background-color: var(--bt-back-color);
+}
+
+// HEADING
+h1, h2, h3 {
+    font-family: 'Sarpanch', sans-serif;
+    letter-spacing: 1rem;
+    text-transform: uppercase;
+}
+h1 {
+    color: var(--bt-blue-color);
+    font-size: 2rem;
+}
+
+h2 {
+    color: white;
+    font-size: 1.4rem;
+}
+
+h3 {
+    color: white;
+    font-size: 1.4rem;
+    letter-spacing: 0.5rem;
+}
+
+// TOPBAR
+
+
+// HEADER
