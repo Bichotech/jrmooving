@@ -1,0 +1,40 @@
+---
+interface Props {
+    title: string,
+    content: string,
+    reverse?: boolean,
+    background?: string
+}
+
+const {title, content, reverse, background} = Astro.props;
+const imageBack = 'background-image: url(/assets/images/' + background + ');';
+---
+
+<section id="bullet-section">
+    <div class="container">
+        <div class="row">
+            <div class:list={['box-title', 'col-12', 'col-xl-3', 'text-center', { 'order-2': reverse }, { 'order-1': !reverse } ]} style={imageBack}><h2>{title}</h2></div>
+            <div class:list={['box-content', 'col-12', 'col-xl-9', { 'text-end': reverse }, { 'order-1': reverse }, { 'order-2': !reverse }, 'align-self-middle' ]} set:html={content} />
+        </div>
+    </div>
+</section>
+
+<style lang="scss">
+    #bullet-section {
+        margin: 4rem 0 4rem 0;
+
+        .box-title, .box-content {
+            min-height: 16rem;
+            padding: 40px;
+        }
+
+        .box-content {
+            border: 1px solid rgba(1, 173, 238, 0.2);
+        }
+
+        .box-title {
+            background-size: cover;
+            background-position: center;
+        }
+    }
+</style>

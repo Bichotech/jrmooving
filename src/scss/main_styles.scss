@@ -8,10 +8,24 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
     font-size: 10px;
     font-family: 'Montserrat', sans-serif;
     color: white;
+    padding: 0;
+    margin: 0;
+}
+
+div, nav, header, footer, section {
+    box-sizing: border-box;
+    display: block;
+}
+
+header {
+    min-height: 100svh;
+}
+
+section, header, footer {
+    width: 100%;
 }
 
 body {
@@ -44,3 +58,20 @@ h3 {
 
 
 // HEADER
+
+
+#bullet-section {
+    .box-content {
+        vertical-align: middle;
+
+        & > p {
+            font-size: 1.6rem;
+        }
+    }
+
+    .box-title, .box-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

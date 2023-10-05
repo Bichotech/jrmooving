@@ -10,7 +10,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^3.2.2"
+    "astro": "^3.2.2",
+    "node-expat": "^2.4.0"
   },
   "devDependencies": {
     "sass": "^1.68.0"
