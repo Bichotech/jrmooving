@@ -13,6 +13,7 @@
     color: white;
     padding: 0;
     margin: 0;
+    transition: all 300ms ease-in-out;
 }
 
 div, nav, header, footer, section {
@@ -22,6 +23,11 @@ div, nav, header, footer, section {
 
 header {
     min-height: 100svh;
+    position: relative;
+
+    .container {
+        height: 100%;
+    }
 }
 
 section, header, footer {
@@ -55,12 +61,6 @@ h3 {
     letter-spacing: 0.5rem;
 }
 
-// TOPBAR
-
-
-// HEADER
-
-
 #bullet-section {
     .box-content {
         vertical-align: middle;
@@ -75,4 +75,220 @@ h3 {
         align-items: center;
         justify-content: center;
     }
+}
+
+#services-section {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+
+    p {
+        font-size: 1.4rem;
+        line-height: 1.5;
+        margin: 2rem 0;
+    }
+
+    .super-list {
+        margin-bottom: 2rem;
+
+        &.double-col {
+            columns: 2;
+        }
+
+        li {
+            font-size: 1.4rem;
+            text-transform: uppercase;
+            margin-bottom: 1.4rem;
+
+            p {
+                text-transform:none;
+                margin: 1rem 0;
+            }
+        }
+    }
+}
+
+#our-values-section {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    background-color: black;
+    position: relative;
+
+    &::after {
+        content: '';
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-image: radial-gradient(circle, rgba(1,173,238,1) 0%, rgba(1,173,238,0) 50%);
+        bottom: 0;
+        z-index: 1;
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-image: radial-gradient(circle, rgba(1,173,238,1) 0%, rgba(1,173,238,0) 50%);
+        top: 0;
+        z-index: 1;
+    }
+
+    .container {
+        position: relative;
+        background-image: url('/assets/images/jrmooving-entregas-en-todo-el-mundo.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    .row {
+        padding: 7rem 5rem;
+    }
+
+    h2 {
+        margin-bottom: 5rem;
+    }
+    .values-container {
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            
+            li {
+                font-size: 1.4rem;
+                margin: 2rem;
+            }
+        }
+    }
+}
+
+#ads-section {
+    .ad-box {
+        background-color: #000;
+        height: 38rem;
+        padding: 3.5rem;
+        display: flex;
+        align-items: flex-end;
+
+        &.ad-documents {
+            background-image: url('/assets/images/ads/documentos-seguros.jpg');
+            background-size: cover;
+            background-position: center center;
+            position: relative;
+
+            &::after {
+                content: '';
+                display: block;
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                bottom: 0;
+                left: 0;
+                z-index: 0;
+                background: linear-gradient(0deg, rgba(0,0,0,0.9) 30%, rgba(0,0,0,0.1) 100%);
+            }
+        }
+
+        &.ad-courier {
+            background-image: url('/assets/images/ads/obc.jpg');
+            background-size: cover;
+            background-position: center center;
+            position: relative;
+
+            &::after {
+                content: '';
+                display: block;
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                bottom: 0;
+                left: 0;
+                z-index: 0;
+                background: linear-gradient(0deg, rgba(0,0,0,0.9) 30%, rgba(0,0,0,0.1) 100%);
+            }
+        }
+
+        .ad-text {
+            width: 100%;
+            position: relative;
+            z-index: 2;
+
+            p {
+                font-size: 1.6rem;
+                width: 80%;
+                display: inline-block;
+            }
+        }
+    }
+}
+
+#pause-section {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    background-color: #000205;
+    position: relative;
+    height: 25rem;
+
+    &::after {
+        content: '';
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-image: radial-gradient(circle, rgba(1,173,238,1) 0%, rgba(1,173,238,0) 50%);
+        bottom: 0;
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-image: radial-gradient(circle, rgba(1,173,238,1) 0%, rgba(1,173,238,0) 50%);
+        top: 0;
+    }
+
+    .container {
+        height: 100%;
+        background-image: url('/assets/images/jrmooving-logistica-en-movimiento-entregas-en-todo-el-mundo.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+
+        .row {
+            height: 100%;
+
+            h2 {
+                position: relative;
+                top: 50%;
+                transform: translateY(-50%);
+                opacity: 0;
+            }
+        }
+    }
+}
+
+#contact-section {
+    padding: 4rem 0;
+}
+
+.white-line {
+    display: block;
+    width: 100%;
+    border-radius: 1px;
+    height: 1px;
+    margin-top: 1rem;
+    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 50% );
+}
+
+.blue-line {
+    display: block;
+    width: 100%;
+    border-radius: 1px;
+    height: 1px;
+    margin-top: 1rem;
+    background: linear-gradient(90deg, rgba(1,173,238,1) 0%,  rgba(1,173,238,0) 50% );
 }

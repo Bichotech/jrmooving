@@ -2,5 +2,79 @@
 
 ---
 <nav>
-    Top Bar
+    <div class="d-flex justify-content-between">
+        <div class="logo">
+            <a href="#"><img src="/assets/images/logo.svg" width="120" alt=""></a>
+        </div>
+        <div class="contact-menu d-flex justify-content-between">
+            <div class="contact-email">
+                <a href="mailto:#">contacto@jrmlogistics.com.mx</a>
+            </div>
+            <div class="menu">
+                <a href="#"><span></span></a>
+            </div>
+        </div>
+    </div>
 </nav>
+
+<style lang="scss">
+    nav {
+        height: 5rem;
+        background-color: rgba(0,0,0,0.4);
+        position: sticky;
+        position: -webkit-sticky;
+        top: 0;
+        width: 100%;
+        display: block;
+        padding: 1.5rem 3rem;
+        z-index: 10;
+        backdrop-filter: blur(10px);
+
+        .contact-menu {
+            display: block;
+            gap: 5rem;
+
+            .contact-email {
+                display: inline-block;
+                
+                a {
+                    color: rgba(255, 255, 255, 0.8);
+                    text-decoration: none;
+                    font-family: 'Sarpanch', sans-serif;
+                    font-size: 1rem;
+                    letter-spacing: 3px;
+                    
+                    &:hover {
+                        color: var(--bt-blue-color);
+                    }
+                }
+            }
+            
+            .menu {
+                display: inline-block;
+                width: 3rem;
+                height: 1rem;
+
+                a {
+                    span {
+                        position: relative;
+                        display: inline-block;
+                        background-color: var(--bt-blue-color);
+                        width: 2rem;
+                        height: 1px;
+                        vertical-align: middle;
+
+                        &::before {
+                            content: '';
+                            position: absolute;
+                            background-color: var(--bt-blue-color);
+                            width: 3rem;
+                            height: 1px;
+                            top: -1rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+</style>

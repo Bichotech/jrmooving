@@ -1,14 +1,34 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import HeroSection from '../components/HeroSection.astro';
-import AdsSection from '../components/AdsSection.astro';
 import BulletSection from '../components/BulletSection.astro';
-import OurValues from '../components/OurValues.astro';
 ---
 
 <Layout title="JR Mooving Logistics :: Logística en movimiento" description="Somos una compañía dedicada a ayudarlo a crear la mejor ruta para el embarque de sus productos">
-	<HeroSection />
-	<AdsSection />
+	<header>
+		<div class="container">
+			<div class="row">
+				<h2 class="text-center">Hero section</h2>
+			</div>
+		</div>
+	</header>
+
+	<section id="ads-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-xl-6 col-12 ad-box text-end ad-courier">
+					<div class="ad-text text-end">
+						<p>Entregamos ese encargo especial mano a mano como si lo entregaras tu a la persona amada y solo a ella.</p>
+					</div>
+				</div>
+				<div class="col-xl-6 col-12 ad-box ad-documents">
+					<div class="ad-text text-left">
+						<p>Entregamos documentos digitales o físicos de manera directa a la persona u organización indicada.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
 	<BulletSection
 		title='Nosotros'
 		content='<p>Nos enorgullece ser la solución a sus tareas de logística, buscando adecuar cada una de las acciones que requiera, buscando ser siempre empáticos con sus necesidades y siempre pendientes a su bienestar.</p>'
@@ -19,4 +39,127 @@ import OurValues from '../components/OurValues.astro';
 		content='<p>Nuestro objetivo es proporcionar una excelente calidad de servicio integral en logística, que sea segura y con alta confiabilidad con costo de inversión competitiva para satisfacer sus necesidades.</p>'
 		reverse={true}
 		background='clouds-2.jpg' />
-	<OurValues />
+	
+	<section id="our-values-section">
+		<div class="container text-center">
+			<div class="row">
+				<div class="col-12">
+					<h2>Nuestros Valores</h2>
+				</div>
+				<div class="col-12 col-xl-6 values-container">
+					<ul class="text-start">
+						<li>Equipo profesional proactivo y en constante actualización</li>
+						<li>Pasión por el servicio</li>
+						<li>Entregas justo a tiempo</li>
+					</ul>
+				</div>
+				<div class="col-12 col-xl-6 values-container">
+					<ul class="text-end">
+						<li>Promovemos una relación de respeto, honestidad y compromiso</li>
+						<li>Nos importan las personas con quienes trabajamos, así como nuestros Clientes y Proveedores</li>
+					</ul>
+				</div>
+			</div>
+			
+		</div>
+	</section>
+
+	<section id="services-section">
+		<div class="container">
+			<dv class="row">
+				<div class="col-12 col-xl-6">
+					<h1>Servicios</h1>
+					<div class="white-line"></div>
+				</div>
+			</dv>
+			<div class="row d-flex py-5">
+				<div class="col-12 col-xl-6">
+					<h3 class="mt-5">Transportación Terrestre</h3>
+					<div class="blue-line"></div>
+					<p>Contamos con servicio terrestre local, nacional e internacional con transbordo o puerta a puerta.</p>
+					<ul class="super-list double-col">
+						<li>Unidad Completa</li>
+						<li>Consolidado</li>
+					</ul>
+					<h3 class="mt-5">Servicios Adicionales</h3>
+					<div class="blue-line mb-5"></div>
+					<ul class="super-list double-col">
+						<li>Seguro de carga</li>
+						<li>Maniobras de carga y descarga</li>
+						<li>GPS en carga</li>
+						<li>Team Driver</li>
+					</ul>
+				</div>
+				<div class="col-12 col-xl-6">
+					Imagen
+				</div>
+			</div>
+
+			<div class="row d-flex py-5">
+				<div class="col-12 col-xl-6 order-2">
+					<h3>Transportación Aérea</h3>
+					<div class="blue-line"></div>
+					<p>Contamos con dos servicios aéreos en su modalidad nacional e internacional.</p>
+					<ul class="super-list">
+						<li>
+							OBC (On board Courier)
+							<p>Diseñado para trasladar mercancías pequeñas o medianas pero de alto valor e impotancia dentro del equipaje de nuestro mensajero.</p>
+						</li>
+						<li>
+							NFO (Next Flight Out)
+							<p>Servicios aéreos con prioridad saliendo en el vuelo inmediato disponible.</p>
+						</li>
+					</ul>
+				</div>
+				<div class="col-12 col-xl-6 order-1">
+					Imagen
+				</div>
+			</div>
+
+			<div class="row d-flex py-5">
+				<div class="col-12 col-xl-6">
+					<h3>Transportación Marítima</h3>
+					<div class="blue-line"></div>
+					<p>Ofrecemos servicios marítimos con proveedores confiables, quienes junto con JR Mooving Logistics diseñaremos la logística para sus embarques de importación y exportación para carga general desde y hacia cualquier puerto o país del mundo, además de brindar un servicio integral al incluir maniobras portuarias, de consolidación o desconsolidación, trámites aduanales y seguro de la mercancía.</p>
+					<ul class="super-list">
+						<li>
+							FCL (Full Container Load)
+							<p>Contenedor completo.</p>
+						</li>
+						<li>
+							LCL (Less than Container Load)
+							<p>Contenedores parciales o compartidos.</p>
+						</li>
+					</ul>
+				</div>
+				<div class="col-12 col-xl-6">
+					Imagen
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="pause-section">
+		<div class="container text-center">
+			<div class="row">
+				<div class="col-12 align-middle">
+					<h2>Logística en movimiento</h2>
+				</div>
+			</div>
+			
+		</div>
+	</section>
+
+	<section id="contact-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-12 col-xl-6">
+					Info
+				</div>
+				<div class="col-12 col-xl-6">
+					Forma
+				</div>
+			</div>
+		</div>
+	</section>
+</Layout>
