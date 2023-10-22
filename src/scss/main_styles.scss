@@ -61,6 +61,25 @@ h3 {
     letter-spacing: 0.5rem;
 }
 
+#main-hero {
+    background-image: url('/assets/images/hero-image.jpg');
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+
+    #frase-1 {
+        display: block;
+        position: absolute;
+        width: 800px;
+        top: 320px;
+        left: 100px;
+
+        img {
+            width: 100%;
+        }
+    }
+}
+
 #bullet-section {
     .box-content {
         vertical-align: middle;

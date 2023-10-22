@@ -1,33 +1,24 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import BulletSection from '../components/BulletSection.astro';
+import PauseSection from '../sections/pauseSection.astro';
+import OurValuesSection from '../sections/ourValuesSection.astro';
+import AdsSection from '../sections/adsSection.astro';
 ---
 
 <Layout title="JR Mooving Logistics :: Logística en movimiento" description="Somos una compañía dedicada a ayudarlo a crear la mejor ruta para el embarque de sus productos">
-	<header>
+	<header id="main-hero">
 		<div class="container">
 			<div class="row">
-				<h2 class="text-center">Hero section</h2>
+				<!-- <h2 class="text-center">Hero section</h2> -->
+				<div id="frase-1">
+					<img src="/assets/images/frase-1.png" alt="" />
+				</div>
 			</div>
 		</div>
 	</header>
 
-	<section id="ads-section">
-		<div class="container">
-			<div class="row">
-				<div class="col-xl-6 col-12 ad-box text-end ad-courier">
-					<div class="ad-text text-end">
-						<p>Entregamos ese encargo especial mano a mano como si lo entregaras tu a la persona amada y solo a ella.</p>
-					</div>
-				</div>
-				<div class="col-xl-6 col-12 ad-box ad-documents">
-					<div class="ad-text text-left">
-						<p>Entregamos documentos digitales o físicos de manera directa a la persona u organización indicada.</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+	<AdsSection />
 
 	<BulletSection
 		title='Nosotros'
@@ -40,29 +31,7 @@ import BulletSection from '../components/BulletSection.astro';
 		reverse={true}
 		background='clouds-2.jpg' />
 	
-	<section id="our-values-section">
-		<div class="container text-center">
-			<div class="row">
-				<div class="col-12">
-					<h2>Nuestros Valores</h2>
-				</div>
-				<div class="col-12 col-xl-6 values-container">
-					<ul class="text-start">
-						<li>Equipo profesional proactivo y en constante actualización</li>
-						<li>Pasión por el servicio</li>
-						<li>Entregas justo a tiempo</li>
-					</ul>
-				</div>
-				<div class="col-12 col-xl-6 values-container">
-					<ul class="text-end">
-						<li>Promovemos una relación de respeto, honestidad y compromiso</li>
-						<li>Nos importan las personas con quienes trabajamos, así como nuestros Clientes y Proveedores</li>
-					</ul>
-				</div>
-			</div>
-			
-		</div>
-	</section>
+	<OurValuesSection />
 
 	<section id="services-section">
 		<div class="container">
@@ -139,16 +108,7 @@ import BulletSection from '../components/BulletSection.astro';
 		</div>
 	</section>
 
-	<section id="pause-section">
-		<div class="container text-center">
-			<div class="row">
-				<div class="col-12 align-middle">
-					<h2>Logística en movimiento</h2>
-				</div>
-			</div>
-			
-		</div>
-	</section>
+	<PauseSection />
 
 	<section id="contact-section">
 		<div class="container">
