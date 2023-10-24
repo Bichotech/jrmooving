@@ -1,0 +1,117 @@
+<section id="services-section">
+    <div class="container">
+        <dv class="row">
+            <div class="col-12 col-xl-6">
+                <h1>Servicios</h1>
+                <div class="white-line"></div>
+            </div>
+        </dv>
+        <div class="row d-flex py-5">
+            <div class="col-12 col-xl-6">
+                <h3 class="mt-5">Transportación Terrestre</h3>
+                <div class="blue-line"></div>
+                <p>Contamos con servicio terrestre local, nacional e internacional con transbordo o puerta a puerta.</p>
+                <ul class="super-list double-col">
+                    <li>Unidad Completa</li>
+                    <li>Consolidado</li>
+                </ul>
+                <h3 class="mt-5">Servicios Adicionales</h3>
+                <div class="blue-line mb-5"></div>
+                <ul class="super-list double-col">
+                    <li>Seguro de carga</li>
+                    <li>Maniobras de carga y descarga</li>
+                    <li>GPS en carga</li>
+                    <li>Team Driver</li>
+                </ul>
+            </div>
+            <div class="col-12 col-xl-6">
+                <div class="transportation-image">
+                    <img src="/assets/images/truck.png" alt="Transporte Terreste por JR Mooving Logistics" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row d-flex py-5">
+            <div class="col-12 col-xl-6 order-2">
+                <h3>Transportación Aérea</h3>
+                <div class="blue-line"></div>
+                <p>Contamos con dos servicios aéreos en su modalidad nacional e internacional.</p>
+                <ul class="super-list">
+                    <li>
+                        OBC (On board Courier)
+                        <p>Diseñado para trasladar mercancías pequeñas o medianas pero de alto valor e impotancia dentro del equipaje de nuestro mensajero.</p>
+                    </li>
+                    <li>
+                        NFO (Next Flight Out)
+                        <p>Servicios aéreos con prioridad saliendo en el vuelo inmediato disponible.</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-12 col-xl-6 order-1">
+                <div class="transportation-image">
+                    <img src="/assets/images/plane.png" alt="Transporte Aéreo por JR Mooving Logistics" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row d-flex py-5">
+            <div class="col-12 col-xl-6">
+                <h3>Transportación Marítima</h3>
+                <div class="blue-line"></div>
+                <p>Ofrecemos servicios marítimos con proveedores confiables, quienes junto con JR Mooving Logistics diseñaremos la logística para sus embarques de importación y exportación para carga general desde y hacia cualquier puerto o país del mundo, además de brindar un servicio integral al incluir maniobras portuarias, de consolidación o desconsolidación, trámites aduanales y seguro de la mercancía.</p>
+                <ul class="super-list">
+                    <li>
+                        FCL (Full Container Load)
+                        <p>Contenedor completo.</p>
+                    </li>
+                    <li>
+                        LCL (Less than Container Load)
+                        <p>Contenedores parciales o compartidos.</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-12 col-xl-6">
+                <div class="transportation-image">
+                    <img src="/assets/images/sea-transport.png" alt="Transporte Marítimo por JR Mooving Logistics" />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style lang="scss">
+    .transportation-image {
+        display: block;
+        position: relative;
+        width: 100%;
+        height: 100%;
+
+        &::before {
+            content: '';
+            position: absolute;
+            display: block;
+            border: 1px solid rgb(1, 173, 238);
+            width: 60%;
+            height: 50%;
+            background-color: transparent;
+            left: 30%;
+            z-index: -1;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            display: block;
+            width: 44%;
+            height: 50%;
+            background-color: rgb(31, 36, 59);
+            left: 48%;
+            top: 10%;
+            z-index: -1;
+        }
+
+        img {
+            width: 100%;
+        }
+    }
+</style>
