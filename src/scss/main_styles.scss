@@ -3,13 +3,15 @@
 :root {
     --bt-back-color: #101010;
     --bt-blue-color: #01ADEE;
+    --sarpanch-font: 'Sarpanch', sans-serif;
+    --montserrat-font: 'Montserrat', sans-serif;
 }
 
 * {
     margin: 0;
     padding: 0;
     font-size: 10px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--montserrat-font);
     color: white;
     padding: 0;
     margin: 0;
@@ -41,7 +43,7 @@ body {
 
 // HEADING
 h1, h2, h3 {
-    font-family: 'Sarpanch', sans-serif;
+    font-family: var(--sarpanch-font);
     letter-spacing: 1rem;
     text-transform: uppercase;
 }
