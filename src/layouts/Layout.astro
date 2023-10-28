@@ -6,6 +6,7 @@ interface Props {
 
 import '../scss/main_styles.scss';
 import NavBar from '../components/NavBar.astro';
+import Footer from '../components/Footer.astro';
 
 const { title, description } = Astro.props;
 const bootstrap_lib = {
@@ -29,7 +30,7 @@ const bootstrap_lib = {
 	<body>
 		<NavBar />
 		<slot />
-
+		<Footer />
 		<script src={bootstrap_lib.BTScripts} integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 		<script src={bootstrap_lib.BTIcons} crossorigin="anonymous"></script>
 	</body>
