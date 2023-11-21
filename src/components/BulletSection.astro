@@ -10,7 +10,7 @@ const {title, content, reverse, background} = Astro.props;
 const imageBack = 'background-image: url(/assets/images/' + background + ');';
 ---
 
-<section id="bullet-section">
+<section id="bullet-section" data-aos="fade-down">
     <div class="container">
         <div class="row">
             <div class:list={['box-title', 'col-12', 'col-xl-3', 'text-center', { 'order-2': reverse }, { 'order-1': !reverse } ]} style={imageBack}><h2>{title}</h2></div>

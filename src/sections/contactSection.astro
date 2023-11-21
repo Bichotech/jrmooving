@@ -1,0 +1,140 @@
+---
+
+---
+<section id="contact-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-xl-6" data-aos="fade-down">
+                <h1>Contacto</h1>
+                <div class="white-line"></div>
+                <div class="contact-content">
+                    <p>Para nosotros es importante que puedas estar en contacto con nosotros y conocer tus inquietudes. Llena el siguiente formulario si deseas una cotización de servicio, resolver alguna duda que tengas o si solo deseas decir &quot;¡HOLA!&quot;.</p>
+                    <ul>
+                        <li><i class="fa-solid fa-at"></i> <a href="mailto:contacto@jrmlogistics.com.mx?subject=Contacto&20;desde&20;el&20;sitio">contacto@jrmlogistics.com.mx</a></li>
+                        <li><i class="fa-solid fa-phone"></i> <a href="tel:8121651777">+52 81 2165 1777</a></li>
+                        <li><i class="fa-solid fa-mobile"></i> <a href="tel:8125764751">+52 81 2576 4751</a></li>
+                        <li><i class="fa-solid fa-location-dot"></i> 64102, Monterrey, NL, MX</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-0 col-xl-1">&nbsp;</div>
+            <div class="col-12 col-xl-5" data-aos="fade-up">
+                <form>
+                    <div class="mb-3">
+                        <label for="inputName" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="inputName" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="inputCompany" class="form-label">Empresa</label>
+                        <input type="text" class="form-control" id="inputCompany" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="inputEmail" class="form-label">Correo Electrónico</label>
+                        <input type="email" class="form-control" id="inputEmail" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="inputPhone" class="form-label">Teléfono</label>
+                        <input type="tel" class="form-control" id="inputPhone" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="inputMessage" class="form-label">Mensaje</label>
+                        <textarea rows="3" class="form-control" id="inputMessage"></textarea>
+                    </div>
+                    <input type="hidden" id="inputHide" />
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="avisoCheck">
+                        <label class="form-check-label" for="avisoCheck">He leído el <a href="./aviso-de-privacidad-clientes">aviso de privacidad</a> y acepto enviar mi información.</label>
+                    </div>                    
+                    <div class="warnings"></div>
+                    <button type="submit" id="theButton" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Enviar</button>
+                  </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    const theForm = document.querySelector('form');
+    const theButton = document.querySelector('#theButton');
+    const theFields = document.querySelectorAll('input, textarea');
+
+    theButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        for(let i = 0; i < theFields.length; i++){
+            console.log(theFields[i]);
+        }
+        
+        return false;
+    });
+</script>
+
+<style lang="scss">
+    #contact-section {
+        margin: 2rem 0;
+
+        .contact-content {
+            margin-top: 2em;
+
+            p {
+                font-size: 1.4rem;
+                line-height: 1.5;
+            }
+
+            ul {
+                list-style: none;
+                padding: 0;
+                margin-top: 3rem;
+
+                li {
+                    margin: 1.4rem 0;
+                    font-size: 1.4rem;
+
+                    i {
+                        color: var(--bt-blue-color);
+                        font-size: 1.4rem;
+                        margin-right: 1rem;
+                    }
+
+                    a {
+                        text-decoration: none;
+                        color: white;
+                        font-size: 1.4rem;
+
+                        &:hover {
+                            color: var(--bt-blue-color);
+                        }
+                    }
+                }
+            }
+        }
+
+        form {
+            input, textarea {
+                font-size: 1.2rem;
+                border-radius: unset;
+                background-color: transparent;
+                border-color: #20354B;
+                color: white;
+                font-family: var(--sarpanch-font);
+            }
+
+            button {
+                border-radius: unset;
+                padding: 0.5rem 2rem;
+                margin-top: 1rem;
+            }
+
+            label {
+                a {
+                    color: var(--bt-blue-color);
+                    text-decoration: none;
+
+                    &:hover {
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+</style>

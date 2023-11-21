@@ -12,7 +12,9 @@ const { title, description } = Astro.props;
 const bootstrap_lib = {
 	BTStyles: 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css',
 	BTScripts: 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js',
-	BTIcons: 'https://kit.fontawesome.com/975c1f34c7.js'
+	BTIcons: 'https://kit.fontawesome.com/975c1f34c7.js',
+	AOSStyles: 'https://unpkg.com/aos@2.3.1/dist/aos.css',
+	AOSScripts: 'https://unpkg.com/aos@2.3.1/dist/aos.js'
 };
 ---
 
@@ -25,13 +27,21 @@ const bootstrap_lib = {
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
-		<link href={bootstrap_lib.BTStyles} rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+		<link href={bootstrap_lib.BTStyles} rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+		<link href={bootstrap_lib.AOSStyles} rel="stylesheet" />
 	</head>
 	<body>
 		<NavBar />
 		<slot />
 		<Footer />
 		<script src={bootstrap_lib.BTScripts} integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+		<script src={bootstrap_lib.AOSScripts} crossorigin="anonymous"></script>
 		<script src={bootstrap_lib.BTIcons} crossorigin="anonymous"></script>
+		<script>
+			AOS.init({
+				duration: 1200,
+				ease: 'ease-in-out'
+			});
+		</script>
 	</body>
 </html>
