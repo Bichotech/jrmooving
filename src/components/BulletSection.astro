@@ -13,8 +13,8 @@ const imageBack = 'background-image: url(/assets/images/' + background + ');';
 <section id="bullet-section" data-aos="fade-down">
     <div class="container">
         <div class="row">
-            <div class:list={['box-title', 'col-12', 'col-xl-3', 'text-center', { 'order-2': reverse }, { 'order-1': !reverse } ]} style={imageBack}><h2>{title}</h2></div>
-            <div class:list={['box-content', 'col-12', 'col-xl-9', { 'text-end': reverse }, { 'order-1': reverse }, { 'order-2': !reverse }, 'align-self-middle' ]} set:html={content} />
+            <div class:list={['box-title', 'col-12', 'col-xl-3', 'order-first', 'text-center', { 'order-xl-last': reverse }, { 'order-xl-first': !reverse } ]} style={imageBack}><h2>{title}</h2></div>
+            <div class:list={['box-content', 'col-12', 'col-xl-9', 'order-last', { 'text-end': reverse }, { 'order-xl-first': reverse }, { 'order-xl-last': !reverse }, 'align-self-middle' ]} set:html={content} />
         </div>
     </div>
 </section>

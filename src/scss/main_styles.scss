@@ -38,6 +38,9 @@ section, header, footer {
     width: 100%;
 }
 
+section {
+    overflow: hidden;
+}
 body {
     background-color: var(--bt-back-color);
 }
@@ -70,6 +73,11 @@ h3 {
     background-position: center center;
     position: relative;
 
+    @media screen and (width < 1200px){
+        background-image: url('/assets/images/hero-image-mobile.jpg');
+        background-position: bottom center;
+    }
+
     #frase-1 {
         display: block;
         position: absolute;
@@ -79,6 +87,10 @@ h3 {
 
         img {
             width: 100%;
+        }
+
+        @media screen and (width < 1200px){
+            display: none;
         }
     }
 }
@@ -114,6 +126,10 @@ h3 {
 
         &.double-col {
             columns: 2;
+
+            @media (width < 1200px){
+                columns: 1;
+            }
         }
 
         li {
