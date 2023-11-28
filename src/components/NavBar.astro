@@ -6,12 +6,23 @@ import Logo from './Logo.astro';
         <div class="logo">
             <a href="/"><Logo /></a>
         </div>
-        <div class="contact-menu d-flex justify-content-between d-none d-xl-block">
-            <div class="contact-email">
+        <div class="contact-menu d-flex justify-content-between">
+            <div class="contact-email d-none d-xl-block">
                 <a href="mailto:#">contacto@jrmlogistics.com.mx</a>
             </div>
-            <div class="menu">
+            <div class="menu d-none">
                 <a href="#"><span></span></a>
+
+                <div class="popup-menu">
+                    <ul>
+                        <li><a href="#">Top</a></li>
+                        <li><a href="#">Anuncios</a></li>
+                        <li><a href="#">Nosotros</a></li>
+                        <li><a href="#">Valores</a></li>
+                        <li><a href="#">Servicios</a></li>
+                        <li><a href="#">Contacto</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
@@ -51,9 +62,11 @@ import Logo from './Logo.astro';
             }
             
             .menu {
+                position: relative;
                 display: inline-block;
                 width: 3rem;
                 height: 1rem;
+                top: 0.8rem;
 
                 a {
                     span {
@@ -72,6 +85,15 @@ import Logo from './Logo.astro';
                             height: 1px;
                             top: -1rem;
                         }
+                    }
+                }
+
+                .popup-menu {
+                    position: absolute;
+                    background-color: #323232;
+                    
+                    ul {
+                        list-style: none;
                     }
                 }
             }

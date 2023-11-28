@@ -4,11 +4,11 @@
 <section id="contact-section">
     <div class="container">
         <div class="row">
-            <div class="col-12 col-xl-6" data-aos="fade-down">
+            <div class="col-12 col-xl-12" data-aos="fade-down">
                 <h1>Contacto</h1>
                 <div class="white-line"></div>
                 <div class="contact-content">
-                    <p>Para nosotros es importante que puedas estar en contacto con nosotros y conocer tus inquietudes. Llena el siguiente formulario si deseas una cotización de servicio, resolver alguna duda que tengas o si solo deseas decir &quot;¡HOLA!&quot;.</p>
+                    <p>Para nosotros es importante que podamos estar en contacto y conocer tus inquietudes.</p>
                     <ul>
                         <li><i class="fa-solid fa-at"></i> <a href="mailto:contacto@jrmlogistics.com.mx?subject=Contacto&20;desde&20;el&20;sitio">contacto@jrmlogistics.com.mx</a></li>
                         <li><i class="fa-solid fa-phone"></i> <a href="tel:8121651777">+52 81 2165 1777</a></li>
@@ -17,8 +17,8 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-0 col-xl-1">&nbsp;</div>
-            <div class="col-12 col-xl-5" data-aos="fade-up">
+            <div class="col-0 d-none col-xl-1">&nbsp;</div>
+            <div class="col-12 col-xl-5 d-none" data-aos="fade-up">
                 <form>
                     <div class="mb-3">
                         <label for="inputName" class="form-label">Nombre</label>
@@ -45,7 +45,7 @@
                         <input type="checkbox" class="form-check-input" id="avisoCheck">
                         <label class="form-check-label" for="avisoCheck">He leído el <a href="./aviso-de-privacidad-clientes">aviso de privacidad</a> y acepto enviar mi información.</label>
                     </div>                    
-                    <div class="warnings"></div>
+                    <div class="warnings mt-5"></div>
                     <button type="submit" id="theButton" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Enviar</button>
                   </form>
             </div>
@@ -56,17 +56,82 @@
 <script>
     const theForm = document.querySelector('form');
     const theButton = document.querySelector('#theButton');
-    const theFields = document.querySelectorAll('input, textarea');
-
+    // Form elements
+    let inputName = document.querySelector('#inputName');
+    let inputCompany = document.querySelector('#inputCompany');
+    let inputEmail = document.querySelector('#inputEmail');
+    let inputPhone = document.querySelector('#inputPhone');
+    let inputMessage = document.querySelector('#inputMessage');
+    let avisoCheck = document.querySelector('#avisoCheck');
+    let inputReview = document.querySelector('#inputHide');
+    
     theButton.addEventListener('click', (e) => {
         e.preventDefault();
-        
-        for(let i = 0; i < theFields.length; i++){
-            console.log(theFields[i]);
+        let _name = (inputName as HTMLInputElement).value;
+        let _phone = (inputPhone as HTMLInputElement).value;
+        let _email = (inputEmail as HTMLInputElement).value;
+        let _aviso = (avisoCheck as HTMLInputElement).checked;
+        let _company = (inputCompany as HTMLInputElement).value;
+        let _message = (inputMessage as HTMLInputElement).value;
+        let _hide = (inputReview as HTMLInputElement).value;
+        let _warning = '<h5>Anotaciones</h5>';
+        let _flag = true;
+        let _data = {
+            name: _name,
+            phone: _phone,
+            email: _email,
+            company: _company,
+            message: _message
+        };
+
+        console.log(_name, _phone, _email, _aviso, _company, _message, _hide);
+
+        const sendEmail = async () => {
+            const data = await fetch('../pages/api/sendEmail.json', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(_data)
+            })
+            .then(res => {
+                console.log('RES: ', res);
+            })
+            .catch(err => {
+                console.log(err);
+                throw new Error('Error en servicio, intente más tarde.');
+            })
+
+            console.log(data);
+        };
+
+        if ( _name === '' ){
+            _flag = false;
+            _warning += '&bull; Su nombre es requerido<br />';
         }
-        
-        return false;
+        if ( _phone === '' && _email === '' ){
+            _flag = false;
+            _warning += '&bull; Necesitamos su teléfono o su email para contactarlo<br />';
+        }
+        if ( !_aviso ){
+            _flag = false;
+            _warning += '&bull; Es necesario que este de acuerdo con lo leido en las políticas de privacidad<br />';
+        }
+        if ( _hide !== '' ){
+            _flag = false;
+            theForm.reset();
+        }
+        if ( _flag ){
+            sendEmail();
+            document.querySelector('.warnings').innerHTML = 'Su correo ha sido enviado';
+            theForm.reset();
+            theButton.classList.add('disabled');
+        } else {
+            document.querySelector('.warnings').innerHTML = _warning;
+        }
+
     });
+    
 </script>
 
 <style lang="scss">
