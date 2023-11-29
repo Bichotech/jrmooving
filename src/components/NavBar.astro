@@ -10,23 +10,35 @@ import Logo from './Logo.astro';
             <div class="contact-email d-none d-xl-block">
                 <a href="mailto:#">contacto@jrmlogistics.com.mx</a>
             </div>
-            <div class="menu d-none">
-                <a href="#"><span></span></a>
+            <div class="menu">
+                <a href="#" class="amenu"><span></span></a>
 
-                <div class="popup-menu">
+                <div class="popup-menu d-none">
                     <ul>
-                        <li><a href="#">Top</a></li>
-                        <li><a href="#">Anuncios</a></li>
-                        <li><a href="#">Nosotros</a></li>
-                        <li><a href="#">Valores</a></li>
-                        <li><a href="#">Servicios</a></li>
-                        <li><a href="#">Contacto</a></li>
+                        <li><a href="#main-hero">Encabezado</a></li>
+                        <li><a href="#ads-section">Anuncios</a></li>
+                        <li><a href="#bullet-section">Nosotros</a></li>
+                        <li><a href="#our-values-section">Valores</a></li>
+                        <li><a href="#services-section">Servicios</a></li>
+                        <li><a href="#contact-section">Contacto</a></li>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
 </nav>
+
+<script>
+    const popMenu = document.querySelector('div.popup-menu');
+    const mainMenu = document.querySelector('.amenu');
+
+    mainMenu.addEventListener('click', (ev) => {
+        ev.preventDefault();
+
+        mainMenu.classList.toggle('close');
+        popMenu.classList.toggle('d-none');
+    });
+</script>
 
 <style lang="scss">
     nav {
@@ -69,6 +81,10 @@ import Logo from './Logo.astro';
                 top: 0.8rem;
 
                 a {
+                    display: block;
+                    width: 2rem;
+                    height: 2rem;
+
                     span {
                         position: relative;
                         display: inline-block;
@@ -84,16 +100,73 @@ import Logo from './Logo.astro';
                             width: 3rem;
                             height: 1px;
                             top: -1rem;
+                            
+                        }
+                    }
+
+                    &.close {
+                        span {
+                            transform: rotate(45deg);
+                            width: 2rem;
+                            top: -0.5rem;
+
+                            &::before {
+                                transform: rotate(-90deg);
+                                width: 2rem;
+                                top: 0;
+                            }
                         }
                     }
                 }
 
                 .popup-menu {
                     position: absolute;
+                    display: block;
                     background-color: #323232;
+                    width: 20rem;
+                    right: 0.5rem;
+                    top: 3rem;
+                    margin: 0;
+                    padding: 0;
+
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        display: block;
+                        width: 2rem;
+                        height: 2rem;
+                        top: -2rem;
+                        right: 0;
+                        border-style: solid;
+                        border-width: 0 20px 20px 20px;
+                        border-color: transparent transparent #323232 transparent;
+                    }
                     
                     ul {
                         list-style: none;
+                        padding: 0;
+                        margin: 0;
+
+                        li {
+                            padding: 0.6rem 1rem 0.6rem 2rem;
+
+                            &:hover {
+                                background-color: rgba(0,0,0,0.3);
+                                padding-left: 3rem;
+
+                                a {
+                                    color: var(--bt-blue-color);
+                                }
+                            }
+
+                            a {
+                                color: rgba(255, 255, 255, 0.6);
+                                text-decoration: none;
+                                font-size: 1rem;
+                                font-family: 'Sarpanch', sans-serif;
+                                text-transform: uppercase;
+                            }
+                        }
                     }
                 }
             }
