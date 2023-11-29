@@ -1,0 +1,170 @@
+---
+import Logo from './Logo.astro';
+---
+<nav>
+    <div class="d-flex justify-content-between">
+        <div class="logo">
+            <a href="/"><Logo /></a>
+        </div>
+        <div class="contact-menu d-flex justify-content-between">
+            <div class="contact-email d-none d-xl-block">
+                <a href="mailto:#">contacto@jrmlogistics.com.mx</a>
+            </div>
+            <div class="menu">
+                <a href="#" class="amenu"><span></span></a>
+
+                <div class="popup-menu d-none">
+                    <ul>
+                        <li><a href="/">Regresar</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<script>
+    const popMenu = document.querySelector('.popup-menu');
+    const mainMenu = document.querySelector('.amenu');
+
+    mainMenu.addEventListener('click', (ev) => {
+        ev.preventDefault();
+
+        mainMenu.classList.toggle('close');
+        popMenu.classList.toggle('d-none');
+    });
+</script>
+
+<style lang="scss">
+    nav {
+        height: 5rem;
+        background-color: rgba(0,0,0,0.4);
+        position: sticky;
+        position: -webkit-sticky;
+        top: 0;
+        width: 100%;
+        display: block;
+        padding: 1.5rem 3rem;
+        z-index: 10;
+        backdrop-filter: blur(10px);
+
+        .contact-menu {
+            display: block;
+            gap: 5rem;
+
+            .contact-email {
+                display: inline-block;
+                
+                a {
+                    color: rgba(255, 255, 255, 0.8);
+                    text-decoration: none;
+                    font-family: 'Sarpanch', sans-serif;
+                    font-size: 1.2rem;
+                    letter-spacing: 3px;
+                    
+                    &:hover {
+                        color: var(--bt-blue-color);
+                    }
+                }
+            }
+            
+            .menu {
+                position: relative;
+                display: inline-block;
+                width: 3rem;
+                height: 1rem;
+                top: 0.8rem;
+
+                a {
+                    display: block;
+                    width: 2rem;
+                    height: 2rem;
+
+                    span {
+                        position: relative;
+                        display: inline-block;
+                        background-color: var(--bt-blue-color);
+                        width: 2rem;
+                        height: 1px;
+                        vertical-align: middle;
+
+                        &::before {
+                            content: '';
+                            position: absolute;
+                            background-color: var(--bt-blue-color);
+                            width: 3rem;
+                            height: 1px;
+                            top: -1rem;
+                            
+                        }
+                    }
+
+                    &.close {
+                        span {
+                            transform: rotate(45deg);
+                            width: 2rem;
+                            top: -0.5rem;
+
+                            &::before {
+                                transform: rotate(-90deg);
+                                width: 2rem;
+                                top: 0;
+                            }
+                        }
+                    }
+                }
+
+                .popup-menu {
+                    position: absolute;
+                    display: block;
+                    background-color: #323232;
+                    width: 20rem;
+                    right: 0.5rem;
+                    top: 3rem;
+                    margin: 0;
+                    padding: 0;
+
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        display: block;
+                        width: 2rem;
+                        height: 2rem;
+                        top: -2rem;
+                        right: 0;
+                        border-style: solid;
+                        border-width: 0 20px 20px 20px;
+                        border-color: transparent transparent #323232 transparent;
+                    }
+                    
+                    ul {
+                        list-style: none;
+                        padding: 0;
+                        margin: 0;
+
+                        li {
+                            padding: 0.6rem 1rem 0.6rem 2rem;
+
+                            &:hover {
+                                background-color: rgba(0,0,0,0.3);
+                                padding-left: 3rem;
+
+                                a {
+                                    color: var(--bt-blue-color);
+                                }
+                            }
+
+                            a {
+                                color: rgba(255, 255, 255, 0.6);
+                                text-decoration: none;
+                                font-size: 1rem;
+                                font-family: 'Sarpanch', sans-serif;
+                                text-transform: uppercase;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+</style>
