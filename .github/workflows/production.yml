@@ -1,28 +1,20 @@
-  - name: FTP Deployer
-  # You may pin to the exact commit or the version.
-  # uses: sand4rt/ftp-deployer@b0fc0a8e0336dddf2192e4415062ad00bd533cba
-  uses: sand4rt/ftp-deployer@v1.7
-  with:
-    # SFTP on
-    sftp: # optional
-    # FTP host URL like: ftp.host.com or sftp.host.com
-    host: ${{ user.server_name }}
-    # FTP port
-    port: # optional, default is 21
-    # Ftp username
-    username: ${{ user.user_name }}
-    # Ftp password
-    password: ${{ user.user_password }}
-    # The remote folder location of your FTP server
-    remote_folder: # optional
-    # The local folder location
-    local_folder: # optional, default is dist
-    # Remove existing files inside FTP remote folder
-    cleanup: # optional
-    # includes
-    include: # optional
-    # exclude
-    exclude: # optional
-    # passive
-    passive: # optional
-          
+on:
+  push:
+    branches: production
+
+name: 🚀 Deploy website on push
+jobs:
+  web-deploy:
+    name: 🎉 Deploy
+    runs-on: ubuntu-latest
+    steps:
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v3
+    
+    - name: 📂 Sync files
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      with:
+        server: ftp.jrmlogistics.com.mx
+        username: ${{ secrets.ftp_username }}
+        password: ${{ secrets.ftp_password }}
+        server-dir: /public_html
