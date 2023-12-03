@@ -330,3 +330,17 @@ h3 {
     margin-top: 1rem;
     background: linear-gradient(90deg, rgba(1,173,238,1) 0%,  rgba(1,173,238,0) 50% );
 }
+
+.open-menu {
+    animation: blur-fx 1s 1;
+}
+
+.close-menu {
+    animation: blur-fx 0.5s 1 backwards;
+}
+
+// Animations
+@keyframes blur-fx {
+    0% { filter:blur(20px); }
+    100% { filter: blur(0); }
+}
