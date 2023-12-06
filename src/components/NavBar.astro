@@ -37,6 +37,7 @@ import Logo from './Logo.astro';
 
         mainMenu.classList.toggle('close');
         popMenu.classList.toggle('d-none');
+        popMenu.classList.toggle('open-menu');
     });
 </script>
 
@@ -128,6 +129,7 @@ import Logo from './Logo.astro';
                     top: 3rem;
                     margin: 0;
                     padding: 0;
+                    filter: drop-shadow(0 0 0.75rem rgba(0,0,0,0.5));
 
                     &::before {
                         content: '';
@@ -149,10 +151,14 @@ import Logo from './Logo.astro';
 
                         li {
                             padding: 0.6rem 1rem 0.6rem 2rem;
+                            border-top: 1px solid transparent;
+                            border-bottom: 1px solid transparent;
+                            line-height: 2;
 
                             &:hover {
                                 background-color: rgba(0,0,0,0.3);
                                 padding-left: 3rem;
+                                border-color: var(--bt-blue-color);
 
                                 a {
                                     color: var(--bt-blue-color);
