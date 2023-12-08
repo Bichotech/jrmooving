@@ -1,10 +1,10 @@
 ---
-
+import EmailForm from "../components/EmailForm";
 ---
 <section id="contact-section">
     <div class="container">
         <div class="row">
-            <div class="col-12 col-xl-12" data-aos="fade-down">
+            <div class="col-12 col-xl-7" data-aos="fade-down">
                 <h1>Contacto</h1>
                 <div class="white-line"></div>
                 <div class="contact-content">
@@ -17,9 +17,10 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-0 d-none col-xl-1">&nbsp;</div>
-            <div class="col-12 col-xl-5 d-none" data-aos="fade-up">
-                <form>
+            <!-- <div class="col-0 d-none col-xl-1">&nbsp;</div> -->
+            <div class="col-12 col-xl-5" data-aos="fade-up">
+                <div><EmailForm client:load /></div>
+                <!-- <form>
                     <div class="mb-3">
                         <label for="inputName" class="form-label">Nombre</label>
                         <input type="text" class="form-control" id="inputName" />
@@ -47,90 +48,113 @@
                     </div>                    
                     <div class="warnings mt-5"></div>
                     <button type="submit" id="theButton" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Enviar</button>
-                  </form>
+                  </form> -->
             </div>
         </div>
     </div>
 </section>
 
 <script>
-    const theForm = document.querySelector('form');
-    const theButton = document.querySelector('#theButton');
-    // Form elements
-    let inputName = document.querySelector('#inputName');
-    let inputCompany = document.querySelector('#inputCompany');
-    let inputEmail = document.querySelector('#inputEmail');
-    let inputPhone = document.querySelector('#inputPhone');
-    let inputMessage = document.querySelector('#inputMessage');
-    let avisoCheck = document.querySelector('#avisoCheck');
-    let inputReview = document.querySelector('#inputHide');
+    // const theForm = document.querySelector('form');
+    // const theButton = document.querySelector('#theButton');
+
+    // document.querySelector("#testButton")?.addEventListener("click", async () => {
+    //     try {
+    //         const res = await fetch("/api/sendmail.json", {
+    //             method: "POST",
+    //             headers: {
+    //                 "Content-Type": "application/json",
+    //             },
+    //             body: JSON.stringify({
+    //                 from: 'no-reply@jrmlogistics.com.mx',
+    //                 to: 'fidel.hdz@me.com',
+    //                 subject: 'Sample Subject',
+    //                 html: '<p>Hi!</p>',
+    //                 text: 'Hi!'
+    //             })
+    //         });
+    //         const data = await res.json();
+    //         console.log(data);
+    //     } catch(e) {
+    //         console.error(e);
+    //     }
+        
+    // });
+    // // Form elements
+    // let inputName = document.querySelector('#inputName');
+    // let inputCompany = document.querySelector('#inputCompany');
+    // let inputEmail = document.querySelector('#inputEmail');
+    // let inputPhone = document.querySelector('#inputPhone');
+    // let inputMessage = document.querySelector('#inputMessage');
+    // let avisoCheck = document.querySelector('#avisoCheck');
+    // let inputReview = document.querySelector('#inputHide');
     
-    theButton.addEventListener('click', (e) => {
-        e.preventDefault();
-        let _name = (inputName as HTMLInputElement).value;
-        let _phone = (inputPhone as HTMLInputElement).value;
-        let _email = (inputEmail as HTMLInputElement).value;
-        let _aviso = (avisoCheck as HTMLInputElement).checked;
-        let _company = (inputCompany as HTMLInputElement).value;
-        let _message = (inputMessage as HTMLInputElement).value;
-        let _hide = (inputReview as HTMLInputElement).value;
-        let _warning = '<h5>Anotaciones</h5>';
-        let _flag = true;
-        let _data = {
-            name: _name,
-            phone: _phone,
-            email: _email,
-            company: _company,
-            message: _message
-        };
+    // theButton.addEventListener('click', (e) => {
+    //     e.preventDefault();
+    //     let _name = (inputName as HTMLInputElement).value;
+    //     let _phone = (inputPhone as HTMLInputElement).value;
+    //     let _email = (inputEmail as HTMLInputElement).value;
+    //     let _aviso = (avisoCheck as HTMLInputElement).checked;
+    //     let _company = (inputCompany as HTMLInputElement).value;
+    //     let _message = (inputMessage as HTMLInputElement).value;
+    //     let _hide = (inputReview as HTMLInputElement).value;
+    //     let _warning = '<h5>Anotaciones</h5>';
+    //     let _flag = true;
+    //     let _data = {
+    //         name: _name,
+    //         phone: _phone,
+    //         email: _email,
+    //         company: _company,
+    //         message: _message
+    //     };
 
-        console.log(_name, _phone, _email, _aviso, _company, _message, _hide);
+    //     console.log(_name, _phone, _email, _aviso, _company, _message, _hide);
 
-        const sendEmail = async () => {
-            const data = await fetch('../pages/api/sendEmail.json', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(_data)
-            })
-            .then(res => {
-                console.log('RES: ', res);
-            })
-            .catch(err => {
-                console.log(err);
-                throw new Error('Error en servicio, intente más tarde.');
-            })
+    //     const sendEmail = async () => {
+    //         const data = await fetch('../pages/api/sendEmail.json', {
+    //             method: 'POST',
+    //             headers: {
+    //                 'Content-Type': 'application/json',
+    //             },
+    //             body: JSON.stringify(_data)
+    //         })
+    //         .then(res => {
+    //             console.log('RES: ', res);
+    //         })
+    //         .catch(err => {
+    //             console.log(err);
+    //             throw new Error('Error en servicio, intente más tarde.');
+    //         })
 
-            console.log(data);
-        };
+    //         console.log(data);
+    //     };
 
-        if ( _name === '' ){
-            _flag = false;
-            _warning += '&bull; Su nombre es requerido<br />';
-        }
-        if ( _phone === '' && _email === '' ){
-            _flag = false;
-            _warning += '&bull; Necesitamos su teléfono o su email para contactarlo<br />';
-        }
-        if ( !_aviso ){
-            _flag = false;
-            _warning += '&bull; Es necesario que este de acuerdo con lo leido en las políticas de privacidad<br />';
-        }
-        if ( _hide !== '' ){
-            _flag = false;
-            theForm.reset();
-        }
-        if ( _flag ){
-            sendEmail();
-            document.querySelector('.warnings').innerHTML = 'Su correo ha sido enviado';
-            theForm.reset();
-            theButton.classList.add('disabled');
-        } else {
-            document.querySelector('.warnings').innerHTML = _warning;
-        }
+    //     if ( _name === '' ){
+    //         _flag = false;
+    //         _warning += '&bull; Su nombre es requerido<br />';
+    //     }
+    //     if ( _phone === '' && _email === '' ){
+    //         _flag = false;
+    //         _warning += '&bull; Necesitamos su teléfono o su email para contactarlo<br />';
+    //     }
+    //     if ( !_aviso ){
+    //         _flag = false;
+    //         _warning += '&bull; Es necesario que este de acuerdo con lo leido en las políticas de privacidad<br />';
+    //     }
+    //     if ( _hide !== '' ){
+    //         _flag = false;
+    //         theForm.reset();
+    //     }
+    //     if ( _flag ){
+    //         sendEmail();
+    //         document.querySelector('.warnings').innerHTML = 'Su correo ha sido enviado';
+    //         theForm.reset();
+    //         theButton.classList.add('disabled');
+    //     } else {
+    //         document.querySelector('.warnings').innerHTML = _warning;
+    //     }
 
-    });
+    // });
     
 </script>
 
