@@ -6,9 +6,9 @@ const resend = new Resend(import.meta.env.RESEND_API_KEY);
 export const POST: APIRoute = async ({ params, request }) => { 
     const body = await request.json();
 
-    const { to, from, subject, html, text } = body;
+    const { to, bcc, from, subject, html, text } = body;
 
-    if (!to || !from || !subject || !html || !text) {
+    if (!to || !from || !subject || !html || !text || !bcc) {
         return new Response(null, {
             status: 400,
             statusText: "No se han proveido los datos correctamente"
@@ -18,6 +18,7 @@ export const POST: APIRoute = async ({ params, request }) => {
     const send = await resend.emails.send({
         from,
         to,
+        bcc,
         subject,
         html,
         text
