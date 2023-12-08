@@ -1,29 +1,47 @@
-import type { APIRoute } from 'astro';
-import { Resend } from 'resend';
+import type { APIRoute } from "astro";
+import { Resend } from "resend";
 
-const resend = new Resend('re_6sfS9ZnR_ArTsGLDWGP4nGH2j8wyjHvD1');
+const resend = new Resend(import.meta.env.RESEND_API_KEY);
 
-export const post: (APIRoute) => Promise<void> = async ({ request }) => {
-    console.log('+++ request', request);
-    console.log('Lo que sea!!');
-  
-    if (request.headers.get('Content-Type') === 'application/json') {
-        const formData = await request.json();
-        const name = formData.name;
-        const company = formData.company;
-        const email = formData.email;
-        const tel = formData.phone;
-        const subject = 'Mensaje enviado desde el sitio';
-        const message = `${formData.message};
-      ----------------------------------------------------------------------
-      De: ${name} • email: ${email} • tel: ${tel} • empresa: ${company}
-      `;
-        console.log(formData);
-        resend.emails.send({
-            from: 'no-reply@jrmooving.com.mx',
-            to: 'fidel.hdz@me.com',
-            subject: subject,
-            html: message
-        });
-    };
-};
+export const POST: APIRoute = async ({ params, request }) => { 
+    const body = await request.json();
+
+    const { to, from, subject, html, text } = body;
+
+    if (!to || !from || !subject || !html || !text) {
+        return new Response(null, {
+            status: 400,
+            statusText: "No se han proveido los datos correctamente"
+        })
+    }
+
+    const send = await resend.emails.send({
+        from,
+        to,
+        subject,
+        html,
+        text
+    });
+
+    if (send.data) {
+        return new Response(
+            JSON.stringify({
+                message: send.data
+            }),
+            {
+                status: 200,
+                statusText: "OK"
+            }
+        );
+    } else {
+        return new Response(
+            JSON.stringify({
+                message: send.error
+            }),
+            {
+                status: 500,
+                statusText: "Error interno de servidor"
+            }
+        );
+    }
+}
