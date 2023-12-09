@@ -31,10 +31,10 @@ import Logo from './Logo.astro';
 <script>
     const popMenu = document.querySelector('div.popup-menu');
     const mainMenu = document.querySelector('.amenu');
+    const outside = document.querySelector('body');
 
     mainMenu.addEventListener('click', (ev) => {
         ev.preventDefault();
-
         mainMenu.classList.toggle('close');
         popMenu.classList.toggle('d-none');
         popMenu.classList.toggle('open-menu');
