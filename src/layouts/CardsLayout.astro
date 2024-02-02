@@ -1,0 +1,62 @@
+---
+interface Props {
+	title: string;
+	description: string;
+	obj: {
+		card_title: string;
+		card_url: string;
+		card_image: string;
+		card_description: string;
+		card_twSite: string;
+		card_twCreator: string;
+	};
+}
+
+import '../scss/cards_styles.scss';
+
+const { title, description, obj } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="description" content={description} />
+    <meta http-equiv="X-UA-Compatible" content="IE=7" />
+
+	<title>{title}</title>
+
+	<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+	<link rel="icon" type="image/png" href="/favicon.png" />
+	<link rel="canonical" href="https://jrmlogistics.com.mx" />
+	<meta name="generator" content={Astro.generator} />
+    <!-- Special tags -->
+	<!-- FB -->
+	<meta property="og:type" content="page" />
+	<meta property="og:title" content={obj.card_title} />
+	<meta property="og:site_name" content={obj.card_title} />
+	<meta property="og:url" content={obj.card_url} />
+	<meta property="og:image" itemprop="image" content={obj.card_image} />
+	<meta property="og:image:secure_url" content={obj.card_image} />
+	<meta property="og:image:type" content="image/webp" />
+	<meta property="og:image:width" content="1200" />
+	<meta property="og:image:height" content="800" />
+	<meta property="og:description" content={obj.card_description} />
+	<!-- TW -->
+	<meta property="twitter:site" content={obj.card_twSite} />
+    <meta property="twitter:creator" content={obj.card_twCreator}>
+	<meta property="twitter:card" content="summary" />
+	<meta property="twitter:title" content={obj.card_title} />
+	<meta property="twitter:url" content={obj.card_url} />
+	<meta property="twitter:image" content={obj.card_image} />
+	<meta property="twitter:description" content={obj.card_description} />
+</head>
+
+<body>
+	
+	<slot />
+
+	<script src="https://kit.fontawesome.com/975c1f34c7.js" crossorigin="anonymous"></script>
+</body>
+</html>
