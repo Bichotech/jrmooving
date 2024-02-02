@@ -1,12 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300,700&family=Cormorant+Garamond:wght@300&family=Sarpanch&display=swap');
-
 :root {
     --bt-back-color: #101820;
     --bt-blue-color: #01ADEE;
     --bt-navy-color: #364787;
     --sarpanch-font: 'Sarpanch', sans-serif;
     --montserrat-font: 'Montserrat', sans-serif;
-    --cormorant-font:  'Cormorant Garamond', serif;
 }
 
 * {
@@ -63,6 +60,10 @@
             list-style: none;
             columns: 2;
             margin: 40px 50px 0;
+
+            @media (width < 500px){
+                margin: 40px 10px 0;
+            }
 
             li {
                 padding: 10px 0;
