@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300,700&family=Cormorant+Garamond:wght@300&family=Sarpanch&display=swap');
+
+:root {
+    --bt-back-color: #101820;
+    --bt-blue-color: #01ADEE;
+    --bt-navy-color: #364787;
+    --sarpanch-font: 'Sarpanch', sans-serif;
+    --montserrat-font: 'Montserrat', sans-serif;
+    --cormorant-font:  'Cormorant Garamond', serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    font-family: var(--montserrat-font);
+    color: var(--bt-back-color);
+    padding: 0;
+    margin: 0;
+    transition: all 300ms ease-in-out;
+    box-sizing: border-box;
+}
+
+.ec-card {
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 40px 20px;
+
+    .ec-logo {
+        width: 220px;
+        height: 220px;
+        margin: 0 auto;
+        text-align: center;
+        vertical-align: middle;
+        background-image: url('/assets/images/ecards/ecard-logo.svg');
+        background-position: center center;
+        background-size: contain;
+    }
+
+    .ec-name-position {
+        margin: 30px 0;
+        text-align: center;
+
+        strong {
+            display: block;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--bt-navy-color);
+        }
+
+        small {
+            text-transform: uppercase;
+            font-size: 1rem;
+            font-family: var(--sarpanch-font);
+            letter-spacing: 4px;
+            color: var(--bt-blue-color);
+        }
+    }
+
+    .ec-datos {
+        ul {
+            list-style: none;
+            columns: 2;
+            margin: 40px 50px 0;
+
+            li {
+                padding: 10px 0;
+                font-size: 1.1rem;
+
+                a {
+                    font-size: 1.1rem;
+                    text-decoration: none;
+                    font-family: var(--sarpanch-font);
+                    color: var(--bt-blue-color);
+                }
+            }
+        }
+    }
+
+    .ec-powered {
+        margin-top: 40px;
+        text-transform: uppercase;
+        font-size: 0.6rem;
+        text-align: right;
+        font-family: var(--sarpanch-font);
+
+        a {
+            text-decoration: none;
+            font-size: 0.6rem;
+            color: orangered;
+        }
+    }
+
+    .blue-line {
+        display: block;
+        width: 100%;
+        border-radius: 1px;
+        height: 1px;
+        margin-top: 1rem;
+        background: linear-gradient(90deg, rgba(1,173,238,0) 0%, rgba(1,173,238,1) 50%,  rgba(1,173,238,0) 100% );
+    }
+}

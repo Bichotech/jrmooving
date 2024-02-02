@@ -1,0 +1,47 @@
+---
+interface ogCards {
+    card_title: string;
+    card_url: string;
+    card_image: string;
+    card_description: string;
+    card_twSite: string;
+    card_twCreator: string;
+}
+
+import '../../scss/cards_styles.scss';
+import CardsLayout from '../../layouts/CardsLayout.astro';
+
+const framos:ogCards = {
+    card_title: 'eCard del Lic. Fabián Ramos',
+    card_url: 'http://www.jrmlogistics.com.mx/e-cards/framos',
+    card_image: 'http://www.jrmlogistics.com.mx/assets/images/ecards/framos.webp',
+    card_description: 'Tarjeta electrónica virtual del Lic. Fabián Ramos creada por BichoTech',
+    card_twSite: '@jrmlogistics',
+    card_twCreator: '@bichotech'
+};
+---
+
+<CardsLayout title={framos.card_title} description={framos.card_description} obj={framos}>
+    <div class="ec-card">
+        <div class="ec-logo">&nbsp;</div>
+        <div class="blue-line"></div>
+        <div class="ec-name-position">
+            
+            <strong>Lic. Fabián Ramos</strong>
+            <small>Administración</small>
+            
+        </div>
+        <div class="blue-line"></div>
+        <div class="ec-datos">
+            <ul>
+                <li><a href="tel:+528121651777"><i class="fa fa-phone"></i> 81 2165 1777</a></li>
+                <li><a href="tel:+528125764751"><i class="fa fa-mobile"></i> 81 2576 4751</a></li>
+                <li><a href="mailto:framos@jrmlogistics.com.mx"><i class="fa fa-envelope"></i> E-mail</a></li>
+                <li><a href="https://wa.link/7xx84t"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a></li>
+                <li><a href="https://www.linkedin.com/company/jr-mooving-logistics/"><i class="fa-brands fa-linkedin"></i> LinkedIn</a></li>
+                <li><a href="https://www.facebook.com/jrmoovinglogistics"><i class="fa-brands fa-facebook"></i> Facebook</a></li>
+            </ul>
+        </div>
+        <div class="ec-powered">Powered by <a href="https://bit.ly/BiXoT" target="_blank">BichoTech</a></div>
+    </div>
+</CardsLayout>
