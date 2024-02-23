@@ -27,9 +27,9 @@ if ($_POST) {
 	//Sanitize input data using PHP filter_var().
 	$user_Name      = filter_var($_POST["name"], FILTER_SANITIZE_STRING);
 	$user_Phone     = filter_var($_POST["phone"], FILTER_SANITIZE_STRING);
-	$user_Aviso     = filter_var($_POST["aviso"], FILTER_SANITIZE_STRING);
 	$user_Email     = filter_var($_POST["email"], FILTER_SANITIZE_EMAIL);
 	$user_Company   = filter_var($_POST["company"], FILTER_SANITIZE_STRING);
+	$user_Message   = filter_var($_POST["message"], FILTER_SANITIZE_STRING);
 	
 	$user_Message = str_replace("\&#39;", "'", $user_Message);
 	$user_Message = str_replace("&#39;", "'", $user_Message);
