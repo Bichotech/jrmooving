@@ -17,9 +17,6 @@ $user_Email     = !empty($_REQUEST["email"]) ? $_REQUEST['email'] : null;
 $user_Company   = !empty($_REQUEST["company"]) ? $_REQUEST['company'] : null;
 $user_Message   = !empty($_REQUEST["message"]) ? $_REQUEST['message'] : null;
 
-$user_Message = str_replace("\&#39;", "'", $user_Message);
-$user_Message = str_replace("&#39;", "'", $user_Message);
-
 //proceed with PHP email.
 $headers = 'From: '.$user_Email.'' . "\r\n" . 'Reply-To: no-reply@bjrmlogistics.com.mx' . "\r\n" . 'X-Mailer: PHP/' . phpversion();
 
