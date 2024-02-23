@@ -21,9 +21,9 @@ const CONTACT_URL = import.meta.env.CONTACT_URL;
             </div>
             <div class="col-0 col-xl-1">&nbsp;</div>
             <div class="col-12 col-xl-5" data-aos="fade-up">
-                <form data-send={CONTACT_URL}>
+                <form>
                     <div class="mb-3">
-                        <label for="inputName" class="form-label">Nombre</label>
+                        <label for="inputName" class="form-label">Nombre X</label>
                         <input type="text" class="form-control" id="inputName" />
                     </div>
                     <div class="mb-3">
@@ -60,7 +60,7 @@ const CONTACT_URL = import.meta.env.CONTACT_URL;
     const theButton = document.querySelector('#theButton');
 
     // GET URL
-    const toSend = theForm.getAttribute('data-send');
+    const toSend = "/assets/c0nt/contact_me.php";
     // Form elements
     let inputName = document.querySelector('#inputName');
     let inputCompany = document.querySelector('#inputCompany');
