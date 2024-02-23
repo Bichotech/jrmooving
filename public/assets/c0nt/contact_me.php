@@ -1,16 +1,21 @@
 <?php
 echo "Iniciando ";
 
-if ( isset( $_POST['json']) ) {
+if ( isset( $data->get( json_decode('json') ) ) ) {
 	echo 'Si Paso';
 } else {
 	echo 'No paso';
 }
 
-$data = json_decode($_POST['json']);
+$data = $data->get( json_decode('json') );
 var_dump($data);
 
 echo $data;
+
+$data2 = $data2->post( json_decode('json') );
+var_dump($data2);
+
+echo $data2;
 
 $to_Email   	= "fidel.hdz@me.com"; //Replace with recipient email address
 $subject        = 'Mensaje desde el sitio ' . $_SERVER['SERVER_NAME']; //Subject line for emails
