@@ -1,7 +1,7 @@
 <?php
 	$data = json_decode(file_get_contents('php://input'), true);
 
-	$to_Email   	= "jfhdzp@gmail.com"; //Replace with recipient email address
+	$to_Email   	= "it@jrmlogistics.com.mx"; //Replace with recipient email address
 	$subject        = 'Mensaje desde el sitio ' . $_SERVER['SERVER_NAME']; //Subject line for emails
 
 	//Sanitize input data using PHP filter_var().
@@ -19,7 +19,7 @@
 	if ( $user_Message != '' ) $body .= 'Mensaje: ' . "\r\n" . $user_Message . "<br>\r\n";
 
 	$headers  = "From: ".$user_Email."\n";
-    $headers .= "Bcc: fh@bicho.tech\n"; 
+    $headers .= "Bcc: it@jrmlogistics.com.mx\n"; 
     $headers .= "X-Sender: ".$user_Email."\n";
     $headers .= 'X-Mailer: PHP/' . phpversion();
     $headers .= "X-Priority: 1\n"; // Urgent message!
