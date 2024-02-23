@@ -22,15 +22,6 @@ if ($_POST) {
 	if ( $user_Company != '' ) $body .= 'Compañía: ' . $user_Company . "\r\n";
 	if ( $user_Message != '' ) $body .= 'Mensaje: ' . "\r\n" . $user_Message . "\r\n";
 	
-	$sentMail = mail($to_Email, $subject, $body, $headers);
-	
-	if(!$sentMail)
-	{
-		$output = json_encode(array('type'=>'error', 'text' => 'No se pudo enviar la informacíon, favor de intentar más tarde.'));
-		die($output);
-	}else{
-		$output = json_encode(array('type'=>'message', 'text' => $user_Name .', gracias por tu mensaje'));
-		die($output);
-	}
+	mail($to_Email, $subject, $body, $headers);
 }
 ?>
