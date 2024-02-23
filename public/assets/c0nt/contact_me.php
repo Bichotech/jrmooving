@@ -1,15 +1,21 @@
 <?php
-echo "Iniciando " . $_POST['submit'];
+echo "Iniciando ";
+
+if ( isset( $_POST['submit']) ) {
+	echo 'Si Paso';
+} else {
+	echo 'No paso';
+}
 
 $to_Email   	= "fidel.hdz@me.com"; //Replace with recipient email address
 $subject        = 'Mensaje desde el sitio ' . $_SERVER['SERVER_NAME']; //Subject line for emails
 
 //Sanitize input data using PHP filter_var().
-$user_Name      = filter_var($_POST["name"], FILTER_SANITIZE_STRING);
-$user_Phone     = filter_var($_POST["phone"], FILTER_SANITIZE_STRING);
-$user_Email     = filter_var($_POST["email"], FILTER_SANITIZE_EMAIL);
-$user_Company   = filter_var($_POST["company"], FILTER_SANITIZE_STRING);
-$user_Message   = filter_var($_POST["message"], FILTER_SANITIZE_STRING);
+$user_Name      = !empty($_POST["name"]) ? $_POST['name'] : null;
+$user_Phone     = !empty($_POST["phone"]) ? $_POST['phone'] : null;
+$user_Email     = !empty($_POST["email"]) ? $_POST['email'] : null;
+$user_Company   = !empty($_POST["company"]) ? $_POST['company'] : null;
+$user_Message   = !empty($_POST["message"]) ? $_POST['message'] : null;
 
 $user_Message = str_replace("\&#39;", "'", $user_Message);
 $user_Message = str_replace("&#39;", "'", $user_Message);
