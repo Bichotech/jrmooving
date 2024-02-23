@@ -1,46 +1,48 @@
-<?php
-echo "Iniciando ";
+	<?php
+	echo "Iniciando ";
 
-if ( $data->get( json_decode('json') ) ) {
-	echo 'Si Paso';
-} else {
-	echo 'No paso';
-}
+	echo $_SERVER["REQUEST_METHOD"];
 
-$data = $data->get( json_decode('json') );
-var_dump($data);
+	if ( $_SERVER["REQUEST_METHOD"] == 'POST' ) {
+		echo 'POST';
+	} else {
+		echo 'NO SE';
+	}
 
-echo $data;
+	// $data = $data->get( json_decode('json') );
+	// var_dump($data);
 
-$data2 = $data2->post( json_decode('json') );
-var_dump($data2);
+	// echo $data;
 
-echo $data2;
+	// $data2 = $data2->post( json_decode('json') );
+	// var_dump($data2);
 
-$to_Email   	= "fidel.hdz@me.com"; //Replace with recipient email address
-$subject        = 'Mensaje desde el sitio ' . $_SERVER['SERVER_NAME']; //Subject line for emails
+	// echo $data2;
 
-//Sanitize input data using PHP filter_var().
-$user_Name      = !empty($_POST["name"]) ? $_POST['name'] : null;
-$user_Phone     = !empty($_POST["phone"]) ? $_POST['phone'] : null;
-$user_Email     = !empty($_POST["email"]) ? $_POST['email'] : null;
-$user_Company   = !empty($_POST["company"]) ? $_POST['company'] : null;
-$user_Message   = !empty($_POST["message"]) ? $_POST['message'] : null;
+	$to_Email   	= "fidel.hdz@me.com"; //Replace with recipient email address
+	$subject        = 'Mensaje desde el sitio ' . $_SERVER['SERVER_NAME']; //Subject line for emails
 
-//proceed with PHP email.
-$headers = 'From: '.$user_Email.'' . "\r\n" . 'Reply-To: no-reply@bjrmlogistics.com.mx' . "\r\n" . 'X-Mailer: PHP/' . phpversion();
+	//Sanitize input data using PHP filter_var().
+	$user_Name      = !empty($_POST["name"]) ? $_POST['name'] : null;
+	$user_Phone     = !empty($_POST["phone"]) ? $_POST['phone'] : null;
+	$user_Email     = !empty($_POST["email"]) ? $_POST['email'] : null;
+	$user_Company   = !empty($_POST["company"]) ? $_POST['company'] : null;
+	$user_Message   = !empty($_POST["message"]) ? $_POST['message'] : null;
 
-$body = 'Nombre: ' . $user_Name . "\r\n\n";
-$body .= 'Teléfono: ' . $user_Phone . "\r\n";
-if ( $user_Email != '' ) $body .= 'Email: ' . $user_Email . "\r\n";
-if ( $user_Company != '' ) $body .= 'Compañía: ' . $user_Company . "\r\n";
-if ( $user_Message != '' ) $body .= 'Mensaje: ' . "\r\n" . $user_Message . "\r\n";
+	//proceed with PHP email.
+	$headers = 'From: '.$user_Email.'' . "\r\n" . 'Reply-To: no-reply@bjrmlogistics.com.mx' . "\r\n" . 'X-Mailer: PHP/' . phpversion();
 
-echo "contenido: " . $body;
+	$body = 'Nombre: ' . $user_Name . "\r\n\n";
+	$body .= 'Teléfono: ' . $user_Phone . "\r\n";
+	if ( $user_Email != '' ) $body .= 'Email: ' . $user_Email . "\r\n";
+	if ( $user_Company != '' ) $body .= 'Compañía: ' . $user_Company . "\r\n";
+	if ( $user_Message != '' ) $body .= 'Mensaje: ' . "\r\n" . $user_Message . "\r\n";
 
-if ( mail($to_Email, $subject, $body, $headers) ){
-	echo "Mensaje enviado";
-} else {
-	echo "No jalo";
-}
-?>
+	echo "contenido: " . $body;
+
+	if ( mail($to_Email, $subject, $body, $headers) ){
+		echo "Mensaje enviado";
+	} else {
+		echo "No jalo";
+	}
+	?>
