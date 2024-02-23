@@ -1,10 +1,12 @@
 ---
+import { Code } from "astro:components";
 
+const CONTACT_URL = import.meta.env.CONTACT_URL;
 ---
 <section id="contact-section">
     <div class="container">
         <div class="row">
-            <div class="col-12 col-xl-12" data-aos="fade-down">
+            <div class="col-12 col-xl-6" data-aos="fade-down">
                 <h1>Contacto</h1>
                 <div class="white-line"></div>
                 <div class="contact-content">
@@ -17,9 +19,9 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-0 d-none col-xl-1">&nbsp;</div>
-            <div class="col-12 col-xl-5 d-none" data-aos="fade-up">
-                <form>
+            <div class="col-0 col-xl-1">&nbsp;</div>
+            <div class="col-12 col-xl-5" data-aos="fade-up">
+                <form data-send={CONTACT_URL}>
                     <div class="mb-3">
                         <label for="inputName" class="form-label">Nombre</label>
                         <input type="text" class="form-control" id="inputName" />
@@ -56,6 +58,9 @@
 <script>
     const theForm = document.querySelector('form');
     const theButton = document.querySelector('#theButton');
+
+    // GET URL
+    const toSend = theForm.getAttribute('data-send');
     // Form elements
     let inputName = document.querySelector('#inputName');
     let inputCompany = document.querySelector('#inputCompany');
@@ -87,7 +92,7 @@
         console.log(_name, _phone, _email, _aviso, _company, _message, _hide);
 
         const sendEmail = async () => {
-            const data = await fetch('../pages/api/sendEmail.json', {
+            const data = await fetch(toSend, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
