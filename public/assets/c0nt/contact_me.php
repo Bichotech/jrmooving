@@ -12,13 +12,20 @@
 	$user_Message   = $data['message'];
 
 	//proceed with PHP email.
-	$headers = 'From: ' . $user_Email . "\r\n" . 'Reply-To: no-reply@jrmlogistics.com.mx' . "\r\n" . 'Reply-To: no-reply@jrmlogistics.com.mx' . "\r\n" . 'X-Mailer: PHP/' . phpversion();
-
 	$body = 'Nombre: ' . $user_Name . "<br>\r\n\n";
 	$body .= 'Teléfono: ' . $user_Phone . "<br>\r\n";
 	if ( $user_Email != '' ) $body .= 'Email: ' . $user_Email . "<br>\r\n";
 	if ( $user_Company != '' ) $body .= 'Compañía: ' . $user_Company . "<br>\r\n";
 	if ( $user_Message != '' ) $body .= 'Mensaje: ' . "\r\n" . $user_Message . "<br>\r\n";
+
+	$headers  = "From: ".$user_Email."\n";
+    $headers .= "Bcc: fh@bicho.tech\n"; 
+    $headers .= "X-Sender: ".$user_Email."\n";
+    $headers .= 'X-Mailer: PHP/' . phpversion();
+    $headers .= "X-Priority: 1\n"; // Urgent message!
+    $headers .= "Return-Path: no-reply@jrmlogistics.com.mx\n"; // Return path for errors
+    $headers .= "MIME-Version: 1.0\r\n";
+    $headers .= "Content-Type: text/html; charset=iso-8859-1\n";
 
 	echo $to_Email . "<br>\n\r" . $subject . "<br>\n\r" . $body . "<br>\n\r" . $headers . "<br>\n\r";
 
