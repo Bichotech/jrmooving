@@ -1,28 +1,15 @@
 	<?php
 	echo "Iniciando ";
 
-	echo $_SERVER["REQUEST_METHOD"];
-
-	if ( $_SERVER["REQUEST_METHOD"] == 'POST' ) {
-		echo 'POST';
-	} else {
-		echo 'NO SE';
-	}
-
-	$data2 = $data2->post( json_decode('json') );
-	var_dump($data2);
-
-	echo $data2;
-
 	$to_Email   	= "fidel.hdz@me.com"; //Replace with recipient email address
 	$subject        = 'Mensaje desde el sitio ' . $_SERVER['SERVER_NAME']; //Subject line for emails
 
 	//Sanitize input data using PHP filter_var().
-	$user_Name      = !empty($_POST["name"]) ? $_POST['name'] : null;
-	$user_Phone     = !empty($_POST["phone"]) ? $_POST['phone'] : null;
-	$user_Email     = !empty($_POST["email"]) ? $_POST['email'] : null;
-	$user_Company   = !empty($_POST["company"]) ? $_POST['company'] : null;
-	$user_Message   = !empty($_POST["message"]) ? $_POST['message'] : null;
+	$user_Name      = $_POST['name'];
+	$user_Phone     = $_POST['phone'];
+	$user_Email     = $_POST['email'];
+	$user_Company   = $_POST['company'];
+	$user_Message   = $_POST['message'];
 
 	//proceed with PHP email.
 	$headers = 'From: '.$user_Email.'' . "\r\n" . 'Reply-To: no-reply@bjrmlogistics.com.mx' . "\r\n" . 'X-Mailer: PHP/' . phpversion();
