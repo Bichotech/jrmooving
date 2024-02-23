@@ -22,9 +22,9 @@
 	if ( $user_Company != '' ) $body .= 'Compañía: ' . $user_Company . "\r\n";
 	if ( $user_Message != '' ) $body .= 'Mensaje: ' . "\r\n" . $user_Message . "\r\n";
 
-	echo "contenido: " . $body;
+	$mailSent = @mail($to_Email, $subject, $body, $headers);
 
-	if ( mail($to_Email, $subject, $body, $headers) ){
+	if ( $mailSent ){
 		echo "Mensaje enviado";
 	} else {
 		echo "No jalo";
