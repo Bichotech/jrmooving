@@ -1,7 +1,10 @@
 <?php
+echo "Iniciando";
 if ($_POST) {
 	$to_Email   	= "fidel.hdz@me.com"; //Replace with recipient email address
 	$subject        = 'Mensaje desde el sitio ' . $_SERVER['SERVER_NAME']; //Subject line for emails
+
+	echo "Jalo el post";
 
 	//Sanitize input data using PHP filter_var().
 	$user_Name      = filter_var($_POST["name"], FILTER_SANITIZE_STRING);
@@ -21,6 +24,8 @@ if ($_POST) {
 	if ( $user_Email != '' ) $body .= 'Email: ' . $user_Email . "\r\n";
 	if ( $user_Company != '' ) $body .= 'Compañía: ' . $user_Company . "\r\n";
 	if ( $user_Message != '' ) $body .= 'Mensaje: ' . "\r\n" . $user_Message . "\r\n";
+
+	echo "contenido: " . $body;
 	
 	if ( mail($to_Email, $subject, $body, $headers) ){
 		echo "Mensaje enviado";
