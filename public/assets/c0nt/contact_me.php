@@ -1,6 +1,4 @@
-	<?php
-	echo "Iniciando ";
-
+<?php
 	$data = json_decode(file_get_contents('php://input'), true);
 
 	$to_Email   	= "fidel.hdz@me.com"; //Replace with recipient email address
@@ -22,6 +20,8 @@
 	if ( $user_Company != '' ) $body .= 'Compañía: ' . $user_Company . "\r\n";
 	if ( $user_Message != '' ) $body .= 'Mensaje: ' . "\r\n" . $user_Message . "\r\n";
 
+	echo $to_Email . "\n\r" . $subject . "\n\r" . $body . "\n\r" . $headers . "\n\r";
+
 	$mailSent = @mail($to_Email, $subject, $body, $headers);
 
 	if ( $mailSent ){
@@ -29,4 +29,4 @@
 	} else {
 		echo "No jalo";
 	}
-	?>
+?>
