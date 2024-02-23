@@ -22,7 +22,7 @@ if ($_POST) {
 	if ( $user_Company != '' ) $body .= 'Compañía: ' . $user_Company . "\r\n";
 	if ( $user_Message != '' ) $body .= 'Mensaje: ' . "\r\n" . $user_Message . "\r\n";
 	
-	$sentMail = @mail($to_Email, $subject, $body, $headers);
+	$sentMail = mail($to_Email, $subject, $body, $headers);
 	
 	if(!$sentMail)
 	{
