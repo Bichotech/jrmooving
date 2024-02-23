@@ -1,7 +1,7 @@
 <?php
 echo "Iniciando ";
 
-if ( isset( $data->get( json_decode('json') ) ) ) {
+if ( $data->get( json_decode('json') ) ) {
 	echo 'Si Paso';
 } else {
 	echo 'No paso';
