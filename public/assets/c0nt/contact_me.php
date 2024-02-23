@@ -1,5 +1,5 @@
 <?php
-echo "Iniciando";
+echo "Iniciando " . $_POST['submit'];
 
 $to_Email   	= "fidel.hdz@me.com"; //Replace with recipient email address
 $subject        = 'Mensaje desde el sitio ' . $_SERVER['SERVER_NAME']; //Subject line for emails
