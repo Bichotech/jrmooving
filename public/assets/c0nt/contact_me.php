@@ -9,15 +9,10 @@
 		echo 'NO SE';
 	}
 
-	// $data = $data->get( json_decode('json') );
-	// var_dump($data);
+	$data2 = $data2->post( json_decode('json') );
+	var_dump($data2);
 
-	// echo $data;
-
-	// $data2 = $data2->post( json_decode('json') );
-	// var_dump($data2);
-
-	// echo $data2;
+	echo $data2;
 
 	$to_Email   	= "fidel.hdz@me.com"; //Replace with recipient email address
 	$subject        = 'Mensaje desde el sitio ' . $_SERVER['SERVER_NAME']; //Subject line for emails
