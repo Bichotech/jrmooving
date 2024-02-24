@@ -1,11 +1,13 @@
 ---
 import InnerLayout from '../layouts/InnerLayout.astro';
 import PauseSection from '../sections/pauseSection.astro';
+import Footer from '../components/Footer.astro';
+import InnerNavBar from '../components/InnerNavBar.astro';
 ---
 
 <InnerLayout title="JR Mooving Logistics :: Aviso de privacidad para clientes, proveedores y visitantes" description="Aviso de privacidad para clientes, proveedores y visitantes">
-
-	<!-- <PauseSection /> -->
+    <InnerNavBar />
+	<PauseSection />
 
     <section>
         <div class="container">
@@ -103,6 +105,8 @@ import PauseSection from '../sections/pauseSection.astro';
             </div>
         </div>
     </section>
+
+    <Footer />
 
 </InnerLayout>
 
