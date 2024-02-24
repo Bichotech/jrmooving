@@ -89,8 +89,8 @@ h3 {
         display: block;
         position: absolute;
         width: 800px;
-        top: 320px;
-        left: 100px;
+        top: 8%;
+        left: 4%;
 
         img {
             width: 100%;
@@ -209,7 +209,7 @@ h3 {
     }
 }
 
-#ads-section {
+#first-content-section {
     .ad-box {
         background-color: #000;
         height: 38rem;
@@ -218,7 +218,7 @@ h3 {
         align-items: flex-end;
 
         &.ad-documents {
-            background-image: url('/assets/images/ads/documentos-seguros.jpg');
+            background-image: url('/assets/images/first-content/documentos-seguros.jpg');
             background-size: cover;
             background-position: center center;
             position: relative;
@@ -237,7 +237,7 @@ h3 {
         }
 
         &.ad-courier {
-            background-image: url('/assets/images/ads/obc.jpg');
+            background-image: url('/assets/images/first-content/obc.jpg');
             background-size: cover;
             background-position: center center;
             position: relative;
@@ -270,9 +270,9 @@ h3 {
 }
 
 #pause-section {
-    margin-top: 4rem;
-    margin-bottom: 4rem;
-    background-color: #000205;
+    // margin-top: 4rem;
+    // margin-bottom: 4rem;
+    background-color: #010101;
     position: relative;
     height: 25rem;
 

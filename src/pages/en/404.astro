@@ -1,0 +1,79 @@
+---
+import '../scss/cards_styles.scss';
+import Layout404 from '../../layouts/Layout404.astro';
+---
+
+<Layout404 title="Howdy, partner! Looks like you're lost" description="Give JR Mooving Logistics a call and they'll get you headed in the right direction">
+    <div class="message">
+        <h2>404</h2>
+        <h4>Howdy, partner! Looks like you're lost. Give JR Mooving Logistics a call and they'll get you headed in the right direction.</h4>
+        <a href="/en/">Let's get you back on track.</a>
+    </div>
+</Layout404>
+
+<style lang="scss">
+    body, html {
+        background-color: var(--bt-back-color);
+        width: 100svw;
+        height: 100svh;
+        display: block;
+        position: relative;
+        background-image: url('/assets/images/hero-image.jpg');
+        background-position: left center;
+        background-size: cover;
+
+        @media screen and (width < 600px){
+            background-image: url('/assets/images/hero-image-mobile.jpg');
+        }
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        outline: none;
+        box-sizing: border-box;
+        color: #fcfcfc;
+        font-family: var(--montserrat-font);
+        font-size: 24px;
+    }
+
+    .message {
+        position: absolute;
+        top: 50%;
+        left: 10%;
+        transform: translateY(-50%);
+        width: 45%;
+        padding: 20px;
+        border: 1px solid #000;
+        background-color: rgba(0, 0, 0, 0.5);
+
+        @media screen and (width < 600px){
+            width: 80%;
+        }
+
+        h2 {
+            font-size: 80px;
+            color: var(--bt-blue-color);
+
+            @media screen and (width < 600px){
+                font-size: 40px;
+            }
+        }
+
+        h4 {
+            font-size: 30px;
+            font-weight: 300;
+            margin-bottom: 30px;
+
+            @media screen and (width < 600px){
+                font-size: 16px;
+            }
+        }
+
+        a {
+            font-size: 16px;
+            color: var(--bt-blue-color);
+            text-decoration: none;
+        }
+    }
+</style>

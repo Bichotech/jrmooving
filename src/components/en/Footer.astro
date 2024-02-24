@@ -1,3 +1,6 @@
+---
+import { getRelativeLocaleUrl } from 'astro:i18n';
+---
 <footer>
     <div class="container">
         <div class="row">
@@ -5,18 +8,19 @@
                 <div class="logo-ft">
                     <img src="/assets/images/footer-logo.webp" alt="">
                 </div>
-                <p>&copy;2024 <strong>JR Mooving Logistics</strong>.<br />Todos los derechos reservados</p>
+                <p>&copy;2024 <strong>JR Mooving Logistics</strong>.<br />All Rights Reserved</p>
             </div>
             <div class="col-12 col-xl-3 company-context">
-                <p>A principios de Febrero del 2015 iniciamos ofreciendo los servicios de logística integral, realizando fletes locales y nacionales en México.</p>
-                <p>En Septiembre del 2020; con incertidumbre por el cierre de empresas a nivel nacional por la pandemia del COVID19, iniciamos operaciones como JR MOOVING LOGISTICS.</p>
+                <p>In early February 2015, we began offering comprehensive logistics services, carrying out local and national freight in Mexico.</p>
+                <p>In September 2020, with uncertainty due to the closure of businesses nationwide due to the COVID19 pandemic, we started operations as JR MOOVING LOGISTICS.</p>
             </div>
             <div class="col-xl-1 d-xl-block d-none">&nbsp;</div>
             <div class="col-6 col-xl-4 company-context">
-                <h3>Avisos de Privacidad</h3>
+                <h3>Privacy notices</h3>
                 <ul>
-                    <li><a href="./aviso-de-privacidad-clientes">Para Clientes</a></li>
-                    <li><a href="./aviso-de-privacidad-empleados">Para Empleados</a></li>
+                    <li><a href="./aviso-de-privacidad-clientes">Privacy notices for customers</a></li>
+                    <li><a href="./aviso-de-privacidad-empleados">Employee Privacy Notices</a></li>
+                    <!-- <li><a href={getRelativeLocaleUrl("es", "aviso-de-privacidad-empleados")}>Employee Privacy Notices</a></li> -->
                 </ul>
             </div>
             <div class="col-6 col-xl-2 company-context">

@@ -1,10 +1,11 @@
 ---
-import Logo from './Logo.astro';
+import Logo from '../Logo.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
 ---
 <nav>
     <div class="d-flex justify-content-between">
         <div class="logo">
-            <a href="/"><Logo /></a>
+            <a href={getRelativeLocaleUrl("es", "en")}><Logo /></a>
         </div>
         <div class="contact-menu d-flex justify-content-between">
             <div class="contact-email d-none d-xl-block">
@@ -15,7 +16,7 @@ import Logo from './Logo.astro';
 
                 <div class="popup-menu d-none">
                     <ul>
-                        <li><a href="/">Regresar</a></li>
+                        <li><a href={getRelativeLocaleUrl("es", "en")}>Regresar</a></li>
                     </ul>
                 </div>
             </div>

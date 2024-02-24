@@ -1,21 +1,44 @@
 ---
-import Logo from './Logo.astro';
+import Logo from '../Logo.astro';
 ---
-<nav>
+
+<nav class="nav-desktop">
+    <div class="d-flex justify-content-between">
+        <ul class="d-flex justify-content-center">
+            <li><a href="#main-hero">Top</a></li>
+            <li><a href="#ads-section">Ads</a></li>
+            <li><a href="#bullet-section">Who we Are?</a></li>
+            <li><a href="/en"><Logo /></a></li>
+            <li><a href="#our-values-section">Values</a></li>
+            <li><a href="#services-section">Services</a></li>
+            <li><a href="#contact-section">Contact</a></li>
+        </ul>
+        <div class="change-lang">
+            <a href="/"><img src="/assets/images/flags/mx.jpg" width="30" /></a>
+        </div>
+    </div>
+</nav>
+<nav class="nav-mobile">
     <div class="d-flex justify-content-between">
         <div class="logo">
-            <a href="/"><Logo /></a>
+            <a href="/en"><Logo /></a>
         </div>
         <div class="contact-menu d-flex justify-content-between">
             <div class="contact-email d-none d-xl-block">
-                <a href="mailto:contacto@jrmlogistics.com.mx">contacto@jrmlogistics.com.mx</a>
+                <a href="mailto:#">contacto@jrmlogistics.com.mx</a>
             </div>
             <div class="menu">
                 <a href="#" class="amenu"><span></span></a>
 
                 <div class="popup-menu d-none">
                     <ul>
-                        <li><a href="/">Regresar</a></li>
+                        <li><a href="#main-hero">Top</a></li>
+                        <li><a href="#ads-section">Ads</a></li>
+                        <li><a href="#bullet-section">Who we are?</a></li>
+                        <li><a href="#our-values-section">Values</a></li>
+                        <li><a href="#services-section">Services</a></li>
+                        <li><a href="#contact-section">Contact</a></li>
+                        <li><a href="/"><img src="/assets/images/flags/mx.jpg" width="30" /></a></li>
                     </ul>
                 </div>
             </div>
@@ -24,12 +47,12 @@ import Logo from './Logo.astro';
 </nav>
 
 <script>
-    const popMenu = document.querySelector('.popup-menu');
+    const popMenu = document.querySelector('div.popup-menu');
     const mainMenu = document.querySelector('.amenu');
+    const outside = document.querySelector('body');
 
     mainMenu.addEventListener('click', (ev) => {
         ev.preventDefault();
-
         mainMenu.classList.toggle('close');
         popMenu.classList.toggle('d-none');
         popMenu.classList.toggle('open-menu');
@@ -48,6 +71,42 @@ import Logo from './Logo.astro';
         padding: 1.5rem 3rem;
         z-index: 10;
         backdrop-filter: blur(10px);
+
+        ul {
+            list-style: none;
+            width: 100%;
+            gap: 40px;
+
+            li {
+                a {
+                    font-family: var(--sarpanch-font);
+                    text-transform: uppercase;
+                    letter-spacing: 3px;
+                    text-decoration: none;
+                    color: var(--bt-blue-color);
+
+                    &:hover {
+                        color: white;
+                    }
+                }
+            }
+        }
+
+        &.nav-desktop {
+            display: block;
+
+            @media screen and (max-width: 880px){
+                display: none;
+            }
+        }
+
+        &.nav-mobile {
+            display: none;
+
+            @media screen and (max-width: 880px){
+                display: block;
+            }
+        }
 
         .contact-menu {
             display: block;
@@ -77,9 +136,9 @@ import Logo from './Logo.astro';
                 top: 0.8rem;
 
                 a {
-                    display: block;
-                    width: 2rem;
-                    height: 2rem;
+                    display: inline-block;
+                    // width: 2rem;
+                    // height: 2rem;
 
                     span {
                         position: relative;
@@ -124,6 +183,7 @@ import Logo from './Logo.astro';
                     top: 3rem;
                     margin: 0;
                     padding: 0;
+                    filter: drop-shadow(0 0 0.75rem rgba(0,0,0,0.5));
 
                     &::before {
                         content: '';

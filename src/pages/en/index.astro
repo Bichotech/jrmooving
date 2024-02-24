@@ -1,0 +1,47 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import NavBar from '../../components/en/NavBar.astro';
+import BulletSection from '../../components/BulletSection.astro';
+import PauseSection from '../../sections/pauseSection.astro';
+import OurValuesSection from '../../sections/en/ourValuesSection.astro';
+import FirstContentSection from '../../sections/en/firstContentSection.astro';
+import ServicesSection from '../../sections/en/servicesSection.astro';
+import ContactSection from '../../sections/en/contactSection.astro';
+import CostumersSection from '../../sections/en/costumersSection.astro';
+import Footer from '../../components/en/Footer.astro';
+---
+
+<Layout title="JR Mooving Logistics :: Logística en movimiento" description="Somos una compañía dedicada a ayudarlo a crear la mejor ruta para el embarque de sus productos">
+	<NavBar />
+	<header id="main-hero">
+		<div class="hero-back"></div>
+		<div class="container">
+			<div class="row">
+				<!-- <h2 class="text-center">Hero section</h2> -->
+				<div id="frase-1">
+					<img src="/assets/images/frase-1.png" alt="Inicie un excelente camino junto a JR Mooving Logistics" />
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<FirstContentSection />
+
+	<BulletSection
+		title='Who we are?'
+		content='<p>We are passionate about logistics, and we are committed to providing you with the best possible service. We are always looking for ways to improve our services, and we are always willing to go the extra mile for our customers.</p>'
+		reverse={false}
+		background='clouds-1.jpg' />
+	<BulletSection
+		title='Goals'
+		content='<p>We are committed to providing you with the best possible logistics services. We understand that your needs are important, and we will work with you to find a solution that is safe, reliable, and affordable.</p>'
+		reverse={true}
+		background='clouds-2.jpg' />
+	
+	<OurValuesSection />
+	<ServicesSection />
+	<PauseSection />
+	<ContactSection />
+	<CostumersSection />
+	<Footer />
+</Layout>
