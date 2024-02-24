@@ -29,10 +29,10 @@
 		}
 	}
 
-	$smtpHost = "smtp.resend.com";
-	$smtpPort = 587;
-	$smtpUsername = "resend";
-	$smtpPassword = "re_gGkwpBmm_DSV6KnATPi5kvrym7v9EdKuD";
+	$smtpHost = getenv('SMTP');
+	$smtpPort = getenv('PORT');
+	$smtpUsername = getenv('USERNAME');
+	$smtpPassword = getenv('USERPASS');
 
 	$data = json_decode(file_get_contents('php://input'), true);
 
