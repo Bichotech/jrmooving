@@ -1,8 +1,43 @@
 <?php
+	function enviarCorreoSMTP($para, $asunto, $mensaje, $smtpHost, $smtpPort, $smtpUsername, $smtpPassword) {
+		// Crear el objeto PHPMailer
+		$mail = new PHPMailer\PHPMailer\PHPMailer();
+		
+		// Configurar el servidor SMTP
+		$mail->isSMTP();
+		$mail->Host = $smtpHost;
+		$mail->Port = $smtpPort;
+		$mail->SMTPAuth = true;
+		$mail->Username = $smtpUsername;
+		$mail->Password = $smtpPassword;
+		
+		// Configurar el remitente y el destinatario
+		$mail->setFrom('it@logisitics.com.mx', 'Departamento de IT');
+		$mail->addAddress($para);
+		
+		// Configurar el asunto y el cuerpo del mensaje
+		$mail->Subject = $asunto;
+		$mail->Body = $mensaje;
+		
+		// Enviar el correo electrónico
+		if (!$mail->send()) {
+			echo "Error al enviar el correo electrónico: " . $mail->ErrorInfo;
+			return false;
+		} else {
+			echo "Correo electrónico enviado correctamente.";
+			return true;
+		}
+	}
+
+	$smtpHost = "smtp.resend.com";
+	$smtpPort = 587;
+	$smtpUsername = "resend";
+	$smtpPassword = "re_gGkwpBmm_DSV6KnATPi5kvrym7v9EdKuD";
+
 	$data = json_decode(file_get_contents('php://input'), true);
 
 	$to_Email   	= "it@jrmlogistics.com.mx"; //Replace with recipient email address
-	$subject        = 'Mensaje desde el sitio ' . $_SERVER['SERVER_NAME']; //Subject line for emails
+	$subject        = 'Mensaje desde el sitio de JR Mooving Logistics'; //Subject line for emails
 
 	//Sanitize input data using PHP filter_var().
 	$user_Name      = $data['name'];
@@ -18,22 +53,24 @@
 	if ( $user_Company != '' ) $body .= 'Compañía: ' . $user_Company . "<br>\r\n";
 	if ( $user_Message != '' ) $body .= 'Mensaje: ' . "\r\n" . $user_Message . "<br>\r\n";
 
-	$headers  = "From: ".$user_Email."\n";
-    $headers .= "Bcc: it@jrmlogistics.com.mx\n"; 
-    $headers .= "X-Sender: ".$user_Email."\n";
-    $headers .= 'X-Mailer: PHP/' . phpversion();
-    $headers .= "X-Priority: 1\n"; // Urgent message!
-    $headers .= "Return-Path: no-reply@jrmlogistics.com.mx\n"; // Return path for errors
-    $headers .= "MIME-Version: 1.0\r\n";
-    $headers .= "Content-Type: text/html; charset=iso-8859-1\n";
+	// $headers  = "From: ".$user_Email."\n";
+    // $headers .= "Bcc: it@jrmlogistics.com.mx\n"; 
+    // $headers .= "X-Sender: ".$user_Email."\n";
+    // $headers .= 'X-Mailer: PHP/' . phpversion();
+    // $headers .= "X-Priority: 1\n"; // Urgent message!
+    // $headers .= "Return-Path: no-reply@jrmlogistics.com.mx\n"; // Return path for errors
+    // $headers .= "MIME-Version: 1.0\r\n";
+    // $headers .= "Content-Type: text/html; charset=iso-8859-1\n";
 
-	echo $to_Email . "<br>\n\r" . $subject . "<br>\n\r" . $body . "<br>\n\r" . $headers . "<br>\n\r";
+	// echo $to_Email . "<br>\n\r" . $subject . "<br>\n\r" . $body . "<br>\n\r" . $headers . "<br>\n\r";
 
-	$mailSent = @mail($to_Email, $subject, $body, $headers);
+	enviarCorreoSMTP($to_Email, $subject, $body, $smtpHost, $smtpPort, $smtpUsername, $smtpPassword);
 
-	if ( $mailSent ){
-		echo "Mensaje enviado";
-	} else {
-		echo "No jalo";
-	}
+	// $mailSent = @mail($to_Email, $subject, $body, $headers);
+
+	// if ( $mailSent ){
+	// 	echo "Mensaje enviado";
+	// } else {
+	// 	echo "No jalo";
+	// }
 ?>
