@@ -45,6 +45,8 @@
 	$smtpUsername = getenv('USERNAME');
 	$smtpPassword = getenv('USERPASS');
 
+	echo $smtpHost . "\n" . $smtpPort . "\n" . $smtpUsername . "\n" . $smtpPassword;
+
 	$data = json_decode(file_get_contents('php://input'), true);
 
 	$to_Email   	= "it@jrmlogistics.com.mx"; //Replace with recipient email address
