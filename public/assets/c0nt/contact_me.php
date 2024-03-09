@@ -1,5 +1,13 @@
 <?php
-	require_once('phpmailer/PHPMailer.php');
+	use PHPMailer\PHPMailer\PHPMailer;
+	use PHPMailer\PHPMailer\Exception;
+
+	require 'phpmailer/Exception.php';
+	require 'phpmailer/PHPMailer.php';
+	require 'phpmailer/SMTP.php';
+
+	//Load Composer's autoloader
+	require 'vendor/autoload.php';
 
 	$mail = new PHPMailer();
 	function enviarCorreoSMTP($para, $asunto, $mensaje, $smtpHost, $smtpPort, $smtpUsername, $smtpPassword) {
