@@ -1,4 +1,7 @@
 <?php
+	require_once('phpmailer/PHPMailer.php');
+
+	$mail = new PHPMailer();
 	function enviarCorreoSMTP($para, $asunto, $mensaje, $smtpHost, $smtpPort, $smtpUsername, $smtpPassword) {
 		// Crear el objeto PHPMailer
 		$mail = new PHPMailer\PHPMailer\PHPMailer();
