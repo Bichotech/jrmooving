@@ -7,7 +7,7 @@
 	require 'phpmailer/SMTP.php';
 
 	//Load Composer's autoloader
-	require 'vendor/autoload.php';
+	// require 'vendor/autoload.php';
 
 	$mail = new PHPMailer();
 	function enviarCorreoSMTP($para, $asunto, $mensaje, $smtpHost, $smtpPort, $smtpUsername, $smtpPassword) {
