@@ -27,90 +27,6 @@
     </div>
 </section>
 
-<script>
-    const theForm = document.querySelector('form');
-    const theButton = document.querySelector('#theButton');
-
-    // GET URL
-    const toSend = "/assets/c0nt/contact_me.php";
-    // Form elements
-    let inputName = document.querySelector('#inputName');
-    let inputCompany = document.querySelector('#inputCompany');
-    let inputEmail = document.querySelector('#inputEmail');
-    let inputPhone = document.querySelector('#inputPhone');
-    let inputMessage = document.querySelector('#inputMessage');
-    let avisoCheck = document.querySelector('#avisoCheck');
-    let inputReview = document.querySelector('#inputHide');
-    
-    theButton.addEventListener('click', (e) => {
-        e.preventDefault();
-        let _name = (inputName as HTMLInputElement).value;
-        let _phone = (inputPhone as HTMLInputElement).value;
-        let _email = (inputEmail as HTMLInputElement).value;
-        let _aviso = (avisoCheck as HTMLInputElement).checked;
-        let _company = (inputCompany as HTMLInputElement).value;
-        let _message = (inputMessage as HTMLInputElement).value;
-        let _hide = (inputReview as HTMLInputElement).value;
-        let _warning = '<h5>Anotaciones</h5>';
-        let _flag = true;
-        let _data = {
-            name: _name,
-            phone: _phone,
-            email: _email,
-            company: _company,
-            message: _message
-        };
-
-        console.log(toSend,_name, _phone, _email, _aviso, _company, _message, _hide);
-
-        const sendEmail = async () => {
-            const data = await fetch(toSend, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(_data)
-            })
-            .then(res => {
-                console.log('RES: ', res);
-            })
-            .catch(err => {
-                console.log(err);
-                throw new Error('Service error, try later.');
-            });
-
-            console.table(data);
-        };
-
-        if ( _name === '' ){
-            _flag = false;
-            _warning += '&bull; Your name is required<br />';
-        }
-        if ( _phone === '' && _email === '' ){
-            _flag = false;
-            _warning += '&bull; We need you phone number or your email to keep in touch.<br />';
-        }
-        if ( !_aviso ){
-            _flag = false;
-            _warning += '&bull; We will not collect or use your personal information without your consent.<br />';
-        }
-        if ( _hide !== '' ){
-            _flag = false;
-            theForm.reset();
-        }
-        if ( _flag ){
-            sendEmail();
-            document.querySelector('.warnings').innerHTML = 'Mail sent';
-            theForm.reset();
-            theButton.classList.add('disabled');
-        } else {
-            document.querySelector('.warnings').innerHTML = _warning;
-        }
-
-    });
-    
-</script>
-
 <style lang="scss">
     #contact-section {
         margin: 2rem 0;
@@ -151,31 +67,16 @@
             }
         }
 
-        form {
-            input, textarea {
-                font-size: 1.2rem;
-                border-radius: unset;
-                background-color: transparent;
-                border-color: #20354B;
-                color: white;
-                font-family: var(--sarpanch-font);
+        .buttons-container {
+            margin-top: 3rem;
+
+            p {
+                font-size: 14px;
+                margin-top: 2rem;
             }
 
-            button {
-                border-radius: unset;
-                padding: 0.5rem 2rem;
-                margin-top: 1rem;
-            }
-
-            label {
-                a {
-                    color: var(--bt-blue-color);
-                    text-decoration: none;
-
-                    &:hover {
-                        color: white;
-                    }
-                }
+            .btn-primary {
+                margin-top: 3rem;
             }
         }
     }
