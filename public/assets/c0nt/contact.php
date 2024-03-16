@@ -1,6 +1,12 @@
 <?php
 	$data = json_decode(file_get_contents('php://input'), true);
 
+    if (function_exists('mail')){
+        print 'mail is defined' . "\n\r";
+    }else{
+        print 'mail is undefined' . "\n\r";
+    }
+
 	$to_Email   	= "it@jrmlogistics.com.mx"; //Replace with recipient email address
 	$subject        = 'Mensaje desde el sitio ' . $_SERVER['SERVER_NAME']; //Subject line for emails
 
