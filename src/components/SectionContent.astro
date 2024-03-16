@@ -1,0 +1,58 @@
+---
+interface PROPS {
+    Title: string;
+    Reverse?: boolean;
+    sideImage?: string;
+}
+
+const { Title, Reverse=false, sideImage="temporal.webp" } = Astro.props as PROPS;
+const sideIMG = "/assets/images/" + sideImage;
+---
+
+<section class="jrm-section container-fluid" id="bullet-section" data-aos="fade">
+    <div class:list={["row", "d-flex", "g-0", "flex-column", {'flex-xl-row-reverse' : Reverse}, {'flex-xl-row' : !Reverse}]}>
+        <div class="col jrm-image-block" style={{ backgroundImage: `url(${sideIMG})` }}>&nbsp;</div>
+        <div class="col">
+            <div class="content-section-text">
+                <h2>{ Title }</h2>
+                <slot name="SectionHTML" />
+            </div>
+        </div>
+    </div>
+</section>
+
+<style lang="scss">
+    .jrm-section {
+        margin: 0;
+        padding: 0;
+
+        .jrm-image-block {
+            display: inline-block;
+            width: 100%;
+            min-height: 450px;
+            height: 100%;
+            overflow: hidden;
+            background-color: rgba(0, 0, 0, 0.5);
+            background-size: cover;
+            background-position: center center;
+
+            @media (width < 1200px){
+                min-height: 250px;
+            }
+        }
+
+        .content-section-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-self: center;
+            height: 100%;
+            padding: 80px;
+
+            @media (width < 1200px){
+                padding: 40px 20px;
+            }
+        }
+    }
+    
+</style>
