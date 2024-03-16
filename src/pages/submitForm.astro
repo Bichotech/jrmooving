@@ -1,0 +1,27 @@
+---
+import { Resend } from 'resend';
+
+const apiK = import.meta.env.APIKEY;
+const resend = new Resend(apiK);
+
+export const post: Astro.RequestHandler = async (context) => {
+  const { name, email, message } = await context.request.formData();
+  try {
+    await resend.sendEmail({
+      from: 'contact-form@example.com',
+      to: 'you@example.com',
+      subject: 'New Contact Form Submission',
+      html: `
+        <p>Name: ${name}</p>
+        <p>Email: ${email}</p>
+        <p>Message: ${message}</p>
+      `,
+    });
+
+    return new Response('Email sent successfully.', { status: 20 });
+  } catch (error) {
+    console.error(error);
+    return new Response('Error sending email.', { status: 50 });
+  }
+};
+---
