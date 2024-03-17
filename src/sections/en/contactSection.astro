@@ -21,13 +21,125 @@
             </div>
             <div class="col-0 col-xl-1">&nbsp;</div>
             <div class="col-12 col-xl-5 buttons-container" data-aos="fade-up">
-                <h3>Do you want to share a comment with us?</h3>
+                <!-- <h3>Do you want to share a comment with us?</h3>
                 <p>We'll respond your message in the first opportunity, even with a simple "Hi!" would be great for us. We share below a link to access a contact form.</p>
-                <a class="btn btn-primary" href="https://74408.aidaform.com/jrmlogistics-cntact-form-en">Our contact form</a>
+                <a class="btn btn-primary" href="https://74408.aidaform.com/jrmlogistics-cntact-form-en">Our contact form</a> -->
+                <form>
+                    <div class="mb-3">
+                        <label for="inputName" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="inputName" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="inputCompany" class="form-label">Company</label>
+                        <input type="text" class="form-control" id="inputCompany" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="inputEmail" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="inputEmail" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="inputPhone" class="form-label">Phone</label>
+                        <input type="tel" class="form-control" id="inputPhone" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="inputMessage" class="form-label">Message</label>
+                        <textarea rows="3" class="form-control" id="inputMessage"></textarea>
+                    </div>
+                    <input type="hidden" id="inputHide" />
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="avisoCheck">
+                        <label class="form-check-label" for="avisoCheck">I agree with <a href="./aviso-de-privacidad-clientes">privacy notice</a> and accept to send the information.</label>
+                    </div>                    
+                    <div class="warnings mt-5"></div>
+                    <button type="submit" id="theButton" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Send</button>
+                  </form>
             </div>
         </div>
     </div>
 </section>
+
+<script>
+    const theForm = document.querySelector('form');
+    const theButton = document.querySelector('#theButton');
+
+    // GET URL
+    const toSend = "/assets/c0nt/contact.php";
+    // Form elements
+    let inputName = document.querySelector('#inputName');
+    let inputCompany = document.querySelector('#inputCompany');
+    let inputEmail = document.querySelector('#inputEmail');
+    let inputPhone = document.querySelector('#inputPhone');
+    let inputMessage = document.querySelector('#inputMessage');
+    let avisoCheck = document.querySelector('#avisoCheck');
+    let inputReview = document.querySelector('#inputHide');
+    
+    theButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        let _name = (inputName as HTMLInputElement).value;
+        let _phone = (inputPhone as HTMLInputElement).value;
+        let _email = (inputEmail as HTMLInputElement).value;
+        let _aviso = (avisoCheck as HTMLInputElement).checked;
+        let _company = (inputCompany as HTMLInputElement).value;
+        let _message = (inputMessage as HTMLInputElement).value;
+        let _hide = (inputReview as HTMLInputElement).value;
+        let _warning = '<h5>Notes</h5>';
+        let _flag = true;
+        let _data = {
+            name: _name,
+            phone: _phone,
+            email: _email,
+            company: _company,
+            message: _message
+        };
+
+        console.log(toSend,_name, _phone, _email, _aviso, _company, _message, _hide);
+
+        const sendEmail = async () => {
+            const data = await fetch(toSend, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(_data)
+            })
+            .then(res => {
+                console.log('RES: ', res);
+                document.querySelector('.warnings').innerHTML = 'Mail sent, thank you.';
+            })
+            .catch(err => {
+                console.log(err);
+                throw new Error('Service error, try later.');
+            });
+
+            console.table(data);
+        };
+
+        if ( _name === '' ){
+            _flag = false;
+            _warning += '&bull; Your name is required<br />';
+        }
+        if ( _phone === '' && _email === '' ){
+            _flag = false;
+            _warning += '&bull; We need you phone number or your email to keep in touch.<br />';
+        }
+        if ( !_aviso ){
+            _flag = false;
+            _warning += '&bull; We will not collect or use your personal information without your consent.<br />';
+        }
+        if ( _hide !== '' ){
+            _flag = false;
+            theForm.reset();
+        }
+        if ( _flag ){
+            sendEmail();
+            theForm.reset();
+            theButton.classList.add('disabled');
+        } else {
+            document.querySelector('.warnings').innerHTML = _warning;
+        }
+
+    });
+</script>
 
 <style lang="scss">
     #contact-section {
@@ -64,6 +176,34 @@
                         &:hover {
                             color: var(--bt-blue-color);
                         }
+                    }
+                }
+            }
+        }
+
+        form {
+            input, textarea {
+                font-size: 1.2rem;
+                border-radius: unset;
+                background-color: transparent;
+                border-color: #20354B;
+                color: white;
+                font-family: var(--sarpanch-font);
+            }
+
+            button {
+                border-radius: unset;
+                padding: 0.5rem 2rem;
+                margin-top: 1rem;
+            }
+
+            label {
+                a {
+                    color: var(--bt-blue-color);
+                    text-decoration: none;
+
+                    &:hover {
+                        color: white;
                     }
                 }
             }
