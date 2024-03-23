@@ -9,6 +9,7 @@ import ContactSection from '../../sections/en/contactSection.astro';
 import CostumersSection from '../../sections/en/costumersSection.astro';
 import Footer from '../../components/en/Footer.astro';
 import SectionContent from '../../components/SectionContent.astro';
+import SectionContentSpecial from '../../components/SectionContentSpecial.astro';
 ---
 
 <Layout title="JR Mooving Logistics :: Logística en movimiento" description="Somos una compañía dedicada a ayudarlo a crear la mejor ruta para el embarque de sus productos">
@@ -30,6 +31,50 @@ import SectionContent from '../../components/SectionContent.astro';
 	
 	<OurValuesSection />
 	<ServicesSection />
+	<SectionContentSpecial Title="Destinations" sideImage="destinos.webp">
+		<Fragment slot="SectionHTML">
+			<p>Our destinations within the Mexican Republic by land transportation are:</p>
+			<div class="row">
+				<div class="col-12 col-xl-6">
+					<ul class="servicios-transporte">
+						<li>
+							Local Deliveries:
+							<ul>
+								<li>Monterrey</li>
+								<li>CDMX</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<div class="col-12 col-xl-6">
+					<ul class="servicios-transporte">
+						<li>
+							Within Mexican Republic:
+							<ul>
+								<li>
+									Destinations from Monterrey...
+									<ul>
+										<li>CDMX</li>
+										<li>Queretaro</li>
+										<li>Guadalajara</li>
+										<li>Culiacan</li>
+									</ul>
+								</li>
+								<li>
+									Destinations from CDMX...
+									<ul>
+										<li>Monterrey</li>
+										<li>Queretaro</li>
+										<li>Guadalajara</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</Fragment>
+	</SectionContent>
 	<PauseSection />
 	<FirstContentSection />
 	<ContactSection />

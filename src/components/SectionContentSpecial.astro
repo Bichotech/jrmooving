@@ -9,7 +9,7 @@ const { Title, Reverse=false, sideImage="temporal.webp" } = Astro.props as PROPS
 const sideIMG = "/assets/images/" + sideImage;
 ---
 
-<section class="jrm-section container-fluid" id="bullet-section" data-aos="fade">
+<section class="jrm-section container-fluid" id="destinations-section" data-aos="fade">
     <div class:list={["row", "d-flex", "g-0", "flex-column", {'flex-xl-row-reverse' : Reverse}, {'flex-xl-row' : !Reverse}]}>
         <div class="col jrm-image-block" style={{ backgroundImage: `url(${sideIMG})` }}>&nbsp;</div>
         <div class="col">
@@ -32,8 +32,8 @@ const sideIMG = "/assets/images/" + sideImage;
             min-height: 450px;
             height: 100%;
             overflow: hidden;
-            background-color: rgba(0, 0, 0, 0.5);
-            background-size: cover;
+            background-size: contain;
+            background-repeat: no-repeat;
             background-position: center center;
             height: auto;
 

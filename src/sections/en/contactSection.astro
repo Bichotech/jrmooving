@@ -92,8 +92,6 @@
             message: _message
         };
 
-        console.log(toSend,_name, _phone, _email, _aviso, _company, _message, _hide);
-
         const sendEmail = async () => {
             const data = await fetch(toSend, {
                 method: 'POST',

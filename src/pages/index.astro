@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import SectionContent from '../components/SectionContent.astro';
+import SectionContentSpecial from '../components/SectionContentSpecial.astro';
 import Hero from '../components/Hero.astro';
 import PauseSection from '../sections/pauseSection.astro';
 import OurValuesSection from '../sections/ourValuesSection.astro';
@@ -28,6 +29,50 @@ import Footer from '../components/Footer.astro';
 	
 	<OurValuesSection />
 	<ServicesSection />
+	<SectionContentSpecial Title="Destinos" sideImage="destinos.webp">
+		<Fragment slot="SectionHTML">
+			<p>Nuestros destinos dentro de la República Mexicana por transportación terrestre son:</p>
+			<div class="row">
+				<div class="col-12 col-xl-6">
+					<ul class="servicios-transporte">
+						<li>
+							Servicio Local:
+							<ul>
+								<li>Monterrey</li>
+								<li>CDMX</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<div class="col-12 col-xl-6">
+					<ul class="servicios-transporte">
+						<li>
+							Dentro de la República:
+							<ul>
+								<li>
+									De Monterrey a...
+									<ul>
+										<li>CDMX</li>
+										<li>Querétaro</li>
+										<li>Guadalajara</li>
+										<li>Culiacan</li>
+									</ul>
+								</li>
+								<li>
+									De CDMX a...
+									<ul>
+										<li>Monterrey</li>
+										<li>Querétaro</li>
+										<li>Guadalajara</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</Fragment>
+	</SectionContent>
 	<PauseSection />
 	<FirstContentSection />
 	<ContactSection />
