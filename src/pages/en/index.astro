@@ -10,6 +10,8 @@ import CostumersSection from '../../sections/en/costumersSection.astro';
 import Footer from '../../components/en/Footer.astro';
 import SectionContent from '../../components/SectionContent.astro';
 import SectionContentSpecial from '../../components/SectionContentSpecial.astro';
+import UneteTransportista from '../../sections/en/UneteTransportista.astro';
+import FormaTransportistas from '../../components/en/FormaTransportistas.astro';
 ---
 
 <Layout title="JR Mooving Logistics :: Logística en movimiento" description="Somos una compañía dedicada a ayudarlo a crear la mejor ruta para el embarque de sus productos">
@@ -17,7 +19,7 @@ import SectionContentSpecial from '../../components/SectionContentSpecial.astro'
 
 	
 
-	<SectionContent Title="Who we are?" sideImage="cargo.webp">
+	<SectionContent Title="Who we are?" sideImage="cargo.webp" idTag="bullet-section">
 		<Fragment slot="SectionHTML">
 			<p>We are passionate about logistics, and we are committed to providing you with the best possible service. We are always looking for ways to improve our services, and we are always willing to go the extra mile for our customers.</p>
 		</Fragment>
@@ -76,8 +78,10 @@ import SectionContentSpecial from '../../components/SectionContentSpecial.astro'
 		</Fragment>
 	</SectionContent>
 	<PauseSection />
+	<UneteTransportista />
 	<FirstContentSection />
 	<ContactSection />
 	<CostumersSection />
 	<Footer />
+	<FormaTransportistas />
 </Layout>
