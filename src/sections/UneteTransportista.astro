@@ -1,0 +1,19 @@
+---
+import SectionContent from "../components/SectionContent.astro";
+---
+
+<SectionContent Title="¿Quieres ser transportista?" Reverse=true sideImage="unete-al-equipo-de-transportistas.jpg">
+    <Fragment slot="SectionHTML">
+        <p>Buscamos transportistas, contáctanos para unirte como parte de nuestra flotilla asociada</p>
+        <p><a href="javascript: void(0);" class="btn btn-primary" id="joinTeam">Envía tu información</a></p>
+    </Fragment>
+</SectionContent>
+
+<script>
+    const serTransportistaOverlay:HTMLElement = document.querySelector('#serTransportista');
+    const buttonOpenForm = document.querySelector('#joinTeam');
+
+    buttonOpenForm.addEventListener('click', () => {
+        serTransportistaOverlay.style.display = `block`;
+    });
+</script>
