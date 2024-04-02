@@ -110,7 +110,7 @@
         const cerrarForma:HTMLElement = document.querySelector(`.close-form`);
         const serTransportistaOverlay:HTMLElement = document.querySelector(`#serTransportista`);
         const forms = document.querySelectorAll('.needs-validation');
-        const toSend = "/assets/c0nt/contact.php";
+        const toSend = "/assets/c0nt/registro.php";
 
         const sendEmail = async (_data:any) => {
             const data = await fetch(toSend, {
@@ -175,9 +175,7 @@
                 tipoUnidades: tipoCamiones,
             };
 
-            console.log(_data);
-
-            // sendEmail(_data);
+            sendEmail(_data);
         };
 
         Array.from(forms).forEach(form => {

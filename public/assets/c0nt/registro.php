@@ -33,7 +33,6 @@
 	$body .= 'Compañía: ' . $form_Company . "<br>\r\n";
 	$body .= 'Ciudad: ' . $form_City . ", " . $form_State . "<br>\r\n";
 	$body .= 'Cantidad de unidades: ' . $form_Fleet . " unidades <br>\r\n";
-	$body .= 'Cantidad de unidades: ' . $form_Fleet . " unidades <br>\r\n";
 	if ( $form_Trucks != '' ) $body .= $form_Trucks . "<br>\r\n";
 	if ( $form_Message != '' ) $body .= 'Mensaje: ' . "\r\n" . $form_Message . "<br>\r\n";
 	$body .= "---------- <br>\r\n\n";
@@ -44,7 +43,6 @@
 	$body_alt .= 'Email: ' . $form_Email . "\r\n";
 	$body_alt .= 'Compañía: ' . $form_Company . "\r\n";
 	$body_alt .= 'Ciudad: ' . $form_City . ", " . $form_State . "\r\n";
-	$body_alt .= 'Cantidad de unidades: ' . $form_Fleet . " unidades \r\n";
 	$body_alt .= 'Cantidad de unidades: ' . $form_Fleet . " unidades \r\n";
 	if ( $form_Trucks != '' ) $body_alt .= $form_Trucks . "\r\n";
 	if ( $form_Message != '' ) $body_alt .= 'Mensaje: ' . "\r\n" . $form_Message . "\r\n";
