@@ -4,7 +4,7 @@
 <div id="serTransportista">
     <div class="forma-de-registro">
         <div class="close-form">&times;</div>
-        <form method="post" class="needs-validation" novalidate>
+        <form method="post" action="" autocomplete="off" class="needs-validation" accept-charset="utf-8" novalidate>
             <div class="row">
                 <div class="col-12 col-xl-6">
                     <div class="mb-3">
@@ -95,7 +95,7 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    <div class="warnings mt-5"></div>
+                    <div class="warnings mt-5" id="regWarns"></div>
                     <button type="submit" id="theButton" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Enviar</button>
                 </div>
             </div>
@@ -109,7 +109,7 @@
 
         const cerrarForma:HTMLElement = document.querySelector(`.close-form`);
         const serTransportistaOverlay:HTMLElement = document.querySelector(`#serTransportista`);
-        const forms = document.querySelectorAll(`.needs-validation`);
+        const forms:HTMLFormElement = document.querySelectorAll(`.needs-validation`);
         const toSend = `/assets/c0nt/registro.php`;
 
         const sendEmail = async (_data:any) => {
@@ -122,7 +122,10 @@
             })
             .then(res => {
                 console.log(`RES: `, res);
-                forms.reset();
+                document.querySelector(`#regWarns`).innerHTML = '<p style="color:#01ADEE; font-size: 12px;">Mensaje enviado, la forma se cerrará en unos segundos</p>';
+                const timing = setTimeout(() => {
+                    cerrarForma.click();
+                }, 3000);
             })
             .catch(err => {
                 console.log(err);
