@@ -62,10 +62,12 @@ const bootstrap_lib = {
 		<script src={bootstrap_lib.AOSScripts} crossorigin="anonymous"></script>
 		<script src={bootstrap_lib.BTIcons} crossorigin="anonymous"></script>
 		<script>
-			AOS.init({
-				duration: 1200,
-				ease: 'ease-in-out'
-			});
+			(() => {
+				AOS.init({
+					duration: 1200,
+					ease: 'ease-in-out'
+				});
+			})();
 		</script>
 	</body>
 </html>

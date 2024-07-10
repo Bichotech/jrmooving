@@ -1,11 +1,12 @@
 ---
+import Logo2 from './Logo2.astro';
 import Logo from './Logo.astro';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 ---
 
 <nav class="nav-desktop">
     <div class="d-flex justify-content-between">
-        <div class="logo"><a href="/"><Logo /></a></div>
+        <div class="logo"><a href="/"><Logo /><Logo2 /></a></div>
         <ul class="d-flex justify-content-center">
             <li><a href="#main-hero">Inicio</a></li>
             <li><a href="#bullet-section">Nosotros</a></li>
@@ -24,7 +25,7 @@ import { getRelativeLocaleUrl } from 'astro:i18n';
 <nav class="nav-mobile">
     <div class="d-flex justify-content-between">
         <div class="logo">
-            <a href="/"><Logo /></a>
+            <a href="/"><Logo /><Logo2 /></a>
         </div>
         <div class="contact-menu d-flex justify-content-between">
             <div class="contact-email d-none d-xl-block">
@@ -98,6 +99,15 @@ import { getRelativeLocaleUrl } from 'astro:i18n';
         &.nav-desktop {
             display: block;
 
+            .logo {
+                a {
+                    display: block;
+                    width: 140px;
+                    margin: 0 0 0 auto;
+                    position: relative;
+                }
+            }
+
             @media screen and (max-width: 880px){
                 display: none;
             }
@@ -105,6 +115,7 @@ import { getRelativeLocaleUrl } from 'astro:i18n';
 
         &.nav-mobile {
             display: none;
+            position: relative;
 
             @media screen and (max-width: 880px){
                 display: block;
